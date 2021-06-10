@@ -1,0 +1,213 @@
+.index {
+  h2 {
+    font-family: "GenJyuuGothic-Bold";
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  p {
+    font-family: "GenJyuuGothic-Regular";
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+/* header */
+header {
+  height: 1080px;
+  .main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    p {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 30px;
+      letter-spacing: 6px;
+      line-height: 45px;
+    }
+    a {
+      font-family: "GenJyuuGothic-Bold";
+      letter-spacing: 1.5px;
+    }
+  }
+  .dot {
+    @include dot;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* About us */
+.about {
+  .about-content {
+    p {
+      font-family: "GenJyuuGothic-Medium";
+      font-size: 20px;
+      letter-spacing: 2px;
+    }
+  }
+  line-height: 1.2;
+  padding: 100px 0 0;
+  .img-box {
+    width: 970px;
+    height: 546px;
+    border-radius: 10px;
+  }
+  .dot {
+    margin-top: 72px;
+    @include dot;
+  }
+}
+@media(max-width: 1000px){
+  .about{
+    .img-box {
+      width: 100%;
+      height: 546px;
+      border-radius: 10px;
+    }
+  }
+}
+
+/* Our service */
+.service {
+  .dot {
+    margin-top: 72px;
+    @include dot;
+  }
+  .spacing{
+    width: 80%;
+  }
+}
+@media (max-width: 1820px){
+  .service{
+    .spacing{
+      width: 100%;
+    }
+  }
+}
+@include desktop{
+  .service{
+    .spacing{
+      width: 70%;
+    }
+  }
+}
+@include ipad{
+  .service{
+    .spacing{
+      width: 100%;
+    }
+  }
+}
+
+.service-items {
+  margin-top: 40px;
+  a {
+    display: block;
+    width: 360px;
+    height: 360px;
+    padding: 20px;
+    color: #fff;
+    background-color: rgb(32, 66, 66);
+    border: 1px solid #707070;
+    border-radius: 10px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h3 {
+    font-family: "GenJyuuGothic-Medium";
+    font-size: 35px;
+    letter-spacing: 3.5px;
+  }
+  p {
+    font-family: "GenJyuuGothic-Regular";
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    line-height: 30px;
+  }
+}
+
+.profolio {
+  font-family: "GenJyuuGothic-Heavy";
+  font-size: 20px;
+  color: #707070;
+  margin-top: 50px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #707070;
+  &:hover {
+    color: #c28e00;
+    border-bottom: 3px solid #c28e00;
+    text-decoration: none;
+  }
+}
+
+/* Work flow */
+.workflow {
+  padding-bottom: 150px;
+}
+.workflow-content{
+  p{
+    line-height: 30px;
+  }
+}
+.work-item {
+  width: 100%;
+  background-color: #eeeeee;
+  .work-space {
+    width: 80%;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h3 {
+    font-family: "GenJyuuGothic-Heavy";
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  p {
+    font-family: "GenJyuuGothic-Medium";
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  img {
+    display: block;
+    width: auto;
+    height: 174px;
+    margin: 10px 0;
+  }
+}
+@media(max-width: 1400px){
+  .work-item {
+    .work-space {
+      width: 100%;
+    }
+  }
+}
+@include ipad {
+  .work-item {
+    .work-space {
+      width: 100%;
+    }
+  }
+}
+
+.learn-more {
+  font-family: "GenJyuuGothic-Bold";
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 30px;
+  padding: 12px 30px;
+  border: 1px solid #707070;
+  border-radius: 44px;
+  background-color: #fff;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0px 3px 6px #00000029;
+  }
+}

@@ -1,0 +1,26 @@
+// 分隔點點點
+@mixin dot {
+  width: 100px;
+  li {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+}
+//裝置斷點
+@mixin desktop{
+  @media(max-width: 1200px){
+    @content
+  }
+};
+@mixin ipad{
+  @media(max-width: 768px){
+    @content
+  }
+};
+@mixin phone{
+  @media(max-width: 576px){
+    @content
+  }
+}
