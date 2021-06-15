@@ -2,9 +2,11 @@ import $ from 'jquery';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vue from 'vue';
-import App from './App.vue';
+import './bus';
 import router from './router';
 import 'bootstrap';
+import App from './App.vue';
+import 'leaflet/dist/leaflet.css';
 
 window.$ = $;
 

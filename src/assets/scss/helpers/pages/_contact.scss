@@ -1,0 +1,140 @@
+.contact {
+  h2 {
+    font-family: "GenJyuuGothic-Bold";
+    font-size: 40px;
+    letter-spacing: 4px;
+  }
+  p {
+    font-family: "GenJyuuGothic-Regular";
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+}
+
+/* Workflow detail */
+.workflow-spacing {
+  padding-top: 180px;
+}
+//修改
+.detail {
+  font-family: "GenJyuuGothic-Regular";
+  letter-spacing: 2px;
+  font-size: 18px;
+  li {
+    display: block;
+    text-align: left !important;
+    // white-space: nowrap;
+    margin-top: 20px;
+  }
+  span {
+    font-size: 14px;
+    font-family: "GenJyuuGothic-Regular";
+    letter-spacing: 2px;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+  .example {
+    font-size: 14px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+}
+.txtpos {
+  top: 250px;
+  position: absolute;
+}
+@include desktop {
+  .txtpos {
+    position: initial;
+  }
+}
+
+.edit {
+  display: table;
+  margin: 0 auto;
+  font-family: "GenJyuuGothic-Medium";
+  font-size: 14px;
+  line-height: 15px;
+  padding: 4px 8px;
+  color: #fff;
+  background-color: #c40000;
+  border-radius: 12px;
+}
+.process {
+  font-family: "GenJyuuGothic-Medium";
+  background-color: #f0c879;
+  border-radius: 27px;
+  line-height: 30px;
+  padding: 6px 12px;
+}
+.percent {
+  font-family: "GenJyuuGothic-Medium";
+  font-size: 14px;
+}
+.content {
+  margin-top: 4px;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+/* customer info */
+.customer-info {
+  font-family: "GenJyuuGothic-Bold";
+  margin-top: 560px;
+  p {
+    line-height: 30px;
+  }
+  label {
+    font-size: 18px;
+  }
+  .input-style {
+    background-color: #f5f5f5;
+    border: none;
+  }
+  .btn-style {
+    font-family: "GenJyuuGothic-Medium";
+    padding: 10px 120px;
+    border: none;
+    border-radius: 0;
+  }
+}
+@include desktop {
+  .customer-info {
+    margin-top: 100px;
+  }
+}
+@include ipad {
+  .customer-info {
+    margin-top: 30px;
+    .select-width{
+      width: 30%; 
+    }
+  }
+}
+
+/* contact us */
+.contact-us {
+  margin-top: 200px;
+  margin-bottom: 180px;
+  line-height: 1.5;
+  .social {
+    font-size: 30px;
+  }
+}
+.contact-label {
+  width: 25%;
+  .label-style {
+    display: inline-block;
+    padding: 0 10px;
+    color: #fff;
+    background-color: #b5b5b5;
+  }
+}
+@include ipad {
+  .line-break {
+    display: block;
+    margin-top: 10px;
+  }
+}

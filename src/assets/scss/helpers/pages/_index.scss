@@ -154,7 +154,9 @@ header {
 }
 .work-item {
   width: 100%;
-  background-color: #eeeeee;
+  &.bg-color{
+    background-color: #eeeeee;
+  }
   .work-space {
     width: 80%;
   }

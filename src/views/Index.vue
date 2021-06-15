@@ -21,7 +21,7 @@
       flex-column flex-xl-row">
         <div class="img-box bg-s-gray"></div>
         <div class="mt-3 ml-0 ml-xl-4 about-content">
-          <h2 class="text-center text-xl-left">ABOUT US<span class="ml-2">關於我們</span></h2>
+          <h2 class="text-center text-xl-left">ABOUT US 關於我們</h2>
           <p class="mt-2">
             這裡應該是需要一段介紹文字，讓我想一下要打什麼
             <br />才好。 <br />this spaceneeds a brief, let me think of it.
@@ -40,7 +40,7 @@
     </section>
     <section class="service pt-5 d-flex flex-column align-items-center">
       <div class="service-content text-center">
-        <h2>OUR SERVICE <span class="ml-2">服務項目</span></h2>
+        <h2>OUR SERVICE 服務項目</h2>
         <p class="mt-2">
           從腳本開發、拍攝、剪輯後製，提供一站式的影像製作服務。
         </p>
@@ -99,11 +99,11 @@
     </section>
     <section class="workflow pt-5 d-flex flex-column align-items-center">
       <div class="workflow-content text-center mb-3">
-        <h2>WORK FLOW <span class="ml-2">服務流程</span></h2>
+        <h2>WORK FLOW 服務流程</h2>
         <p class="mt-2">從腳本討論至影片完成，製作期依照案件內容而定 。
           <br>What we strive to do in this industry</p>
       </div>
-      <div class="work-item py-3">
+      <div class="work-item py-3 bg-color">
         <div class="container-fluid work-space justify-content-center">
           <div class="row">
             <div class="col-xl-2 col-md-4 mb-4 mb-xl-0 d-flex flex-column
@@ -124,13 +124,13 @@
               <img src="@/assets/images/workflowicon/3.png" alt="腳本確認與簽約">
               <p>industry</p>
             </div>
-            <div class="col-xl-2 col-md-4 d-flex flex-column
+            <div class="col-xl-2 col-md-4 mb-4 mb-md-0 d-flex flex-column
             justify-content-center align-items-center">
               <h3>前置與拍攝</h3>
               <img src="@/assets/images/workflowicon/4.png" alt="前置與拍攝">
               <p>industry</p>
             </div>
-            <div class="col-xl-2 col-md-4 d-flex flex-column
+            <div class="col-xl-2 col-md-4 mb-4 mb-md-0 d-flex flex-column
             justify-content-center align-items-center">
               <h3>後期製作</h3>
               <img src="@/assets/images/workflowicon/5.png" alt="後期製作">
@@ -151,3 +151,12 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    const vm = this;
+    vm.$bus.$emit('changeNav', 'home');
+  },
+};
+</script>

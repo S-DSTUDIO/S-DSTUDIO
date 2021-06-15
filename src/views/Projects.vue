@@ -3,3 +3,12 @@
     <h1>This is an PROJECTS page</h1>
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    const vm = this;
+    vm.$bus.$emit('changeNav', 'projects');
+  },
+};
+</script>

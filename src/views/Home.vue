@@ -2,35 +2,39 @@
   <div class="home">
     <nav class="navbar navbar-expand-sm">
       <h1 class="mb-0 navbar-brand">
-        <router-link to="/">S-D STUDIO</router-link>
+        <router-link :class="{ 'text-black': nowNav == 'contact' }" to="/">S-D STUDIO</router-link>
       </h1>
-      <button
-        class="navbar-toggler"
-        type="button"
+      <button class="navbar-toggler" type="button"
         data-toggle="collapse"
-        data-target="#mainNavbar"
-      >
-        <i class="fas fa-bars text-white"></i>
+        data-target="#mainNavbar">
+        <i class="fas fa-bars text-white"
+        :class="{ 'text-black': nowNav == 'contact' }"></i>
       </button>
       <div id="mainNavbar" class="collapse navbar-collapse flex-row-reverse">
         <ul class="d-sm-flex main-item">
           <li>
-            <router-link to="/" class="nav-item line-style">HOME</router-link>
+            <router-link to="/" class="nav-item line-style"
+            :class="{ 'text-black': nowNav == 'contact', 'black': nowNav == 'contact' }">
+              HOME
+            </router-link>
           </li>
           <li>
             <router-link to="/projects" class="nav-item line-style"
-              >PROJECTS</router-link
-            >
+            :class="{ 'text-black': nowNav == 'contact', 'black': nowNav == 'contact' }">
+              PROJECTS
+            </router-link>
           </li>
           <li>
-            <router-link to="/postproduction" class="nav-item line-style">
+            <router-link to="/postproduction" class="nav-item line-style"
+            :class="{ 'text-black': nowNav == 'contact', 'black': nowNav == 'contact' }">
               POST-PRODUCTION
             </router-link>
           </li>
           <li>
             <router-link to="/contact" class="nav-item line-style"
-              >CONTACT</router-link
-            >
+            :class="{ 'text-black': nowNav == 'contact', 'black': nowNav == 'contact' }">
+              CONTACT
+            </router-link>
           </li>
         </ul>
       </div>
@@ -41,15 +45,14 @@
         <li class="d-flex align-items-center basic-info spacing">
           <img
             src="@/assets/images/logo/s-d-logo_white.png"
-            alt="S-D STUDIO Logo"
-          />
+            alt="S-D STUDIO Logo"/>
           <ul>
             <li>思帝影像事業企業社</li>
             <li>S-D STUDIO</li>
             <li class="social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/selfdirectedstudio" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.youtube.com/channel/UCGawabA6bnVLKxzzDdd5r0Q" target="_blank"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.instagram.com/selfdirectedstudio/" target="_blank"><i class="fab fa-instagram"></i></a>
             </li>
           </ul>
         </li>
@@ -68,4 +71,17 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      nowNav: 'home',
+    };
+  },
+  created() {
+    const vm = this;
+    vm.$bus.$on('changeNav', (nav) => {
+      vm.nowNav = nav;
+    });
+  },
+};
 </script>
