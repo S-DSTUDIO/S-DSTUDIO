@@ -40,7 +40,7 @@
       </div>
     </nav>
     <router-view></router-view>
-    <footer class="bg-black">
+    <footer class="bg-black px-3 px-md-0">
       <ul class="d-flex justify-content-center align-items-center text-white">
         <li class="d-flex align-items-center basic-info spacing">
           <img

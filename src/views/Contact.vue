@@ -1,8 +1,8 @@
 <template>
   <div class="contact">
-    <section class="workflow d-flex flex-column align-items-center workflow-spacing">
+    <section class="workflow d-flex flex-column align-items-center workflow-spacing px-2 px-md-0">
       <div class="workflow-content text-center mb-3">
-        <h2>WORK FLOW 服務流程</h2>
+        <h2>WORK FLOW <span class="breakline">服務流程</span></h2>
         <p class="mt-2">從腳本討論至影片完成，製作期依照案件內容而定 。
           <br>What we strive to do in this industry</p>
       </div>
@@ -110,7 +110,7 @@
         </div>
       </div>
     </section>
-    <section class="customer-info">
+    <section class="customer-info px-2 px-md-0">
       <div class="container">
         <h2 class="text-center">Ready to Start? <span class="line-break">等不及要開始了嗎?</span></h2>
         <p class="text-center mt-2">等不及開始和我們一起執行新專案了嗎?
@@ -119,57 +119,79 @@
           <br>Looking forward to hearing from you!
           <br>※為必填項目
         </p>
-        <form class="mt-4 d-flex flex-column">
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="name">姓名 Name※</label>
-            <input class="col-xl-10 form-control input-style" type="text" id="name">
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="email">信箱 E-mail※</label>
-            <input class="col-xl-10 form-control input-style" type="email" id="email">
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="tel">連絡電話 TEL</label>
-            <input class="col-xl-10 form-control input-style" type="tel" id="tel">
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="company">公司/單位 Company</label>
-            <input class="col-xl-10 form-control input-style" type="text" id="company">
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="role">職稱 Role</label>
-            <input class="col-xl-10 form-control input-style" type="text" id="role">
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="message">需求※ <br>Your message</label>
-            <textarea class="col-xl-10 form-control input-style" name="message" id="message"
-            cols="30" rows="10"></textarea>
-          </div>
-          <div class="form-group row">
-            <label class="col-xl-2 col-form-label" for="budget">預算 Budget</label>
-            <select class="input-style select-width" name="budget" id="budget">
-              <option value="30萬以下">30萬以下</option>
-              <option value="30萬-60萬">30萬-60萬</option>
-              <option value="60萬-100萬">60萬-100萬</option>
-              <option value="100萬-150萬">100萬-150萬</option>
-              <option value="150">150</option>
-            </select>
-          </div>
-          <button class="btn btn-s-blue btn-style
-          align-self-xl-end align-self-center mt-3 mt-xl-0" type="button">
-            確認內容並送出 Send
-          </button>
-        </form>
+        <ValidationObserver v-slot="{ invalid }">
+          <form class="mt-4 d-flex flex-column">
+            <ValidationProvider name="name" rules="required" v-slot="{ errors }">
+              <div class="form-group row">
+                <label class="col-xl-2 col-form-label" for="name">姓名 Name※</label>
+                  <input class="col-xl-10 form-control input-style" type="text" id="name"
+                  v-model="customer.name">
+                  <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+              </div>
+            </ValidationProvider>
+            <ValidationProvider name="email" rules="required|email" v-slot="{ errors }">
+              <div class="form-group row">
+                <label class="col-xl-2 col-form-label" for="email">信箱 E-mail※</label>
+                <input class="col-xl-10 form-control input-style" type="email" id="email"
+                v-model="customer.email">
+                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+              </div>
+            </ValidationProvider>
+            <ValidationProvider name="email" rules="tel" v-slot="{ errors }">
+              <div class="form-group row">
+                <label class="col-xl-2 col-form-label" for="tel">連絡電話 TEL</label>
+                <input class="col-xl-10 form-control input-style" type="tel" id="tel"
+                v-model="customer.tel">
+                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+              </div>
+            </ValidationProvider>
+            <div class="form-group row">
+              <label class="col-xl-2 col-form-label" for="company">公司/單位 Company</label>
+              <input class="col-xl-10 form-control input-style" type="text" id="company"
+              v-model="customer.company">
+            </div>
+            <div class="form-group row">
+              <label class="col-xl-2 col-form-label" for="role">職稱 Role</label>
+              <input class="col-xl-10 form-control input-style" type="text" id="role"
+              v-model="customer.role">
+            </div>
+            <ValidationProvider name="message" rules="required" v-slot="{ errors }">
+              <div class="form-group row">
+                <label class="col-xl-2 col-form-label" for="message">需求※ <br>Your message</label>
+                <textarea class="col-xl-10 form-control input-style" name="message" id="message"
+                cols="30" rows="10" v-model="customer.message"></textarea>
+                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+              </div>
+            </ValidationProvider>
+            <div class="form-group row">
+              <label class="col-xl-2 col-form-label" for="budget">預算 Budget</label>
+              <select class="input-style select-width" name="budget" id="budget"
+              v-model="customer.budget">
+                <option value="">-- 請選擇預算 --</option>
+                <option value="30萬以下">30萬以下</option>
+                <option value="30萬-60萬">30萬-60萬</option>
+                <option value="60萬-100萬">60萬-100萬</option>
+                <option value="100萬-150萬">100萬-150萬</option>
+                <option value="150">150</option>
+              </select>
+            </div>
+            <button class="btn btn-s-blue btn-style
+            align-self-xl-end align-self-center mt-3 mt-xl-0" type="submit"
+            :disabled = "invalid">
+              確認內容並送出 Send
+            </button>
+          </form>
+        </ValidationObserver>
       </div>
     </section>
-    <section class="contact-us">
+    <section class="contact-us px-1 px-md-0">
       <div class="container">
         <h2 class="text-center mb-4 mb-xl-5">CONTACT US 聯絡我們</h2>
         <div class="row justify-content-center align-items-center">
-          <div class="col-xl-7">
+          <div class="col-xl-7 d-xl-block d-flex flex-column align-items-center">
             <ul class="contact-info">
-              <li class="d-flex align-items-start">
-                <div class="contact-label mr-3 d-flex justify-content-end">
+              <li class="d-block d-md-flex align-items-start">
+                <div class="contact-label mb-2 mb-md-0 mr-md-3 d-flex justify-content-md-end">
                   <p class="text-right label-style">地址 Address</p>
                 </div>
                 <p>710台南市永康區富強路一段98巷38弄3號1樓
@@ -177,14 +199,14 @@
                   <br>Sec. 1, Fuqiang Rd., Yongkang Dist
                 </p>
               </li>
-              <li class="d-flex mt-3 align-items-center">
-                <div class="contact-label mr-3 d-flex justify-content-end">
+              <li class="d-block d-md-flex mt-3 align-items-center">
+                <div class="contact-label mb-2 mb-md-0 mr-md-3 d-flex justify-content-md-end">
                   <p class="text-right label-style">E-mail</p>
                 </div>
                 <p>selfdirectedstudio@gmail.com</p>
               </li>
-              <li class="d-flex mt-3 align-items-center">
-                <div class="contact-label mr-3 d-flex justify-content-end">
+              <li class="d-block d-md-flex mt-3 align-items-center">
+                <div class="contact-label mr-md-3 d-flex justify-content-md-end">
                   <p class="text-right label-style">Follow us</p>
                 </div>
                 <div class="social">
@@ -208,6 +230,19 @@
 import Map from '@/components/Map.vue';
 
 export default {
+  data() {
+    return {
+      customer: {
+        name: '',
+        email: '',
+        tel: '',
+        company: '',
+        role: '',
+        message: '',
+        budget: '',
+      },
+    };
+  },
   components: {
     Map,
   },

@@ -10,6 +10,13 @@
     letter-spacing: 2px;
   }
 }
+@include phone{
+  .index{
+    span{
+      display: block;
+    }
+  }
+}
 /* header */
 header {
   height: 1080px;

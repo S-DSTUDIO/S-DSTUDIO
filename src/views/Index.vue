@@ -14,14 +14,14 @@
       </ul>
       <!-- <img src="" alt=""> -->
     </header>
-    <section class="about bg-white d-flex flex-column align-items-center">
+    <section class="about bg-white d-flex flex-column align-items-center  px-2 px-md-0">
       <div class="d-flex justify-content-center
       align-items-center
       align-items-xl-end
       flex-column flex-xl-row">
         <div class="img-box bg-s-gray"></div>
         <div class="mt-3 ml-0 ml-xl-4 about-content">
-          <h2 class="text-center text-xl-left">ABOUT US 關於我們</h2>
+          <h2 class="text-center text-xl-left">ABOUT US <span class="breakline">關於我們</span></h2>
           <p class="mt-2">
             這裡應該是需要一段介紹文字，讓我想一下要打什麼
             <br />才好。 <br />this spaceneeds a brief, let me think of it.
@@ -38,9 +38,9 @@
         <li class="bg-s-light-blue"></li>
       </ul>
     </section>
-    <section class="service pt-5 d-flex flex-column align-items-center">
+    <section class="service pt-5 d-flex flex-column align-items-center  px-2 px-md-0">
       <div class="service-content text-center">
-        <h2>OUR SERVICE 服務項目</h2>
+        <h2>OUR SERVICE <span class="breakline">服務項目</span></h2>
         <p class="mt-2">
           從腳本開發、拍攝、剪輯後製，提供一站式的影像製作服務。
         </p>
@@ -97,9 +97,9 @@
         <li class="bg-s-light-blue"></li>
       </ul>
     </section>
-    <section class="workflow pt-5 d-flex flex-column align-items-center">
+    <section class="workflow pt-5 d-flex flex-column align-items-center px-2 px-md-0">
       <div class="workflow-content text-center mb-3">
-        <h2>WORK FLOW 服務流程</h2>
+        <h2>WORK FLOW <span class="breakline">服務流程</span></h2>
         <p class="mt-2">從腳本討論至影片完成，製作期依照案件內容而定 。
           <br>What we strive to do in this industry</p>
       </div>
