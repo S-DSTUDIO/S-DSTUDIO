@@ -15,17 +15,17 @@ const router = new VueRouter({
         component: () => import('../views/Index.vue'),
       },
       {
-        path: '/projects',
+        path: 'projects/:id',
         name: 'Projects',
         component: () => import('../views/Projects.vue'),
       },
       {
-        path: '/postproduction',
+        path: 'postproduction',
         name: 'PostProduction',
         component: () => import('../views/PostProduction.vue'),
       },
       {
-        path: '/contact',
+        path: 'contact',
         name: 'Contact',
         component: () => import('../views/Contact.vue'),
       }],

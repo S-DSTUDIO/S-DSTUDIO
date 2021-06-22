@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 <template>
   <div class="contact">
     <section class="workflow d-flex flex-column align-items-center workflow-spacing px-2 px-md-0">
@@ -120,7 +121,7 @@
           <br>※為必填項目
         </p>
         <ValidationObserver v-slot="{ invalid }">
-          <form class="mt-4 d-flex flex-column">
+          <form class="mt-4 d-flex flex-column" @submit.prevent = "submitSheet">
             <ValidationProvider name="name" rules="required" v-slot="{ errors }">
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="name">姓名 Name※</label>
@@ -133,6 +134,7 @@
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="email">信箱 E-mail※</label>
                 <input class="col-xl-10 form-control input-style" type="email" id="email"
+                inputmode="email"
                 v-model="customer.email">
                 <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
               </div>
@@ -141,6 +143,7 @@
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="tel">連絡電話 TEL</label>
                 <input class="col-xl-10 form-control input-style" type="tel" id="tel"
+                inputmode="tel"
                 v-model="customer.tel">
                 <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
               </div>
@@ -245,6 +248,26 @@ export default {
   },
   components: {
     Map,
+  },
+  methods: {
+    submitSheet() {
+      const vm = this;
+      const api = 'https://sheet.best/api/sheets/cda39020-8cbf-4e62-95cb-412c152e2f63';
+      const data = this.customer;
+      vm.$http.post(api, data).then((res) => {
+        if (res.data.success) {
+          vm.customer = {
+            name: '',
+            email: '',
+            tel: '',
+            company: '',
+            role: '',
+            message: '',
+            budget: '',
+          };
+        }
+      });
+    },
   },
   created() {
     const vm = this;

@@ -49,46 +49,51 @@
         <div class="row">
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
           mb-3 mb-xl-0">
-            <a class="d-flex flex-column justify-content-between" href="#">
+            <router-link class="d-flex flex-column justify-content-between"
+            to="/projects/commercial" @click.native="scrollPoint">
               <div class="category">
                 <h3 class="mb-2">廣告</h3>
                 <p>企業形象廣告｜產品廣告 <br />活動宣傳｜招募影片</p>
               </div>
               <p class="category-en align-self-end">COMMERCIAL FILM</p>
-            </a>
+            </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
           mb-3 mb-sm-0">
-            <a class="d-flex flex-column justify-content-between" href="#">
+            <router-link class="d-flex flex-column justify-content-between"
+            to="/projects/documentary" @click.native="scrollPoint">
               <div class="category">
                 <h3 class="mb-2">紀錄片</h3>
                 <p>人物紀錄｜實務紀錄｜訪談影片</p>
               </div>
               <p class="category-en align-self-end">Documentary</p>
-            </a>
+            </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
           mb-3 mb-sm-0">
-            <a class="d-flex flex-column justify-content-between" href="#">
+            <router-link class="d-flex flex-column justify-content-between"
+            to="/projects/behind" @click.native="scrollPoint">
               <div class="category">
                 <h3 class="mb-2">活動及花絮紀錄</h3>
                 <p>活動花絮拍攝｜重要典禮紀錄</p>
               </div>
               <p class="category-en align-self-end">BEHIND THE SCENE</p>
-            </a>
+            </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center">
-            <a class="d-flex flex-column justify-content-between" href="#">
+            <router-link class="d-flex flex-column justify-content-between"
+            to="/postproduction/colorist" @click.native="scrollPoint">
               <div class="category">
                 <h3 class="mb-2">調光調色</h3>
                 <p>廣告｜劇情片｜紀錄片</p>
               </div>
               <p class="category-en align-self-end">Colorist</p>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
-      <a href="#" class="profolio text-">瀏覽更多作品</a>
+      <router-link to="/projects/all" class="profolio text-"
+      @click.native="scrollPoint">瀏覽更多作品</router-link>
       <ul class="d-flex justify-content-between dot">
         <li class="bg-s-light-blue"></li>
         <li class="bg-s-light-blue"></li>
@@ -145,15 +150,20 @@
           </div>
         </div>
       </div>
-      <button class="learn-more mt-3">
+      <router-link to="/contact" class="learn-more mt-3" @click.native="scrollPoint">
         進一步了解<br />Learn More
-      </button>
+      </router-link>
     </section>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    scrollPoint() {
+      window.scroll(0, 0);
+    },
+  },
   created() {
     const vm = this;
     vm.$bus.$emit('changeNav', 'home');

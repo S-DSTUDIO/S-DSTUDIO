@@ -9,39 +9,39 @@
     font-size: 20px;
     letter-spacing: 2px;
   }
+  /* header */
+  header {
+    height: 1080px;
+    .main-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      p {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 30px;
+        letter-spacing: 6px;
+        line-height: 45px;
+      }
+      a {
+        font-family: "GenJyuuGothic-Bold";
+        letter-spacing: 1.5px;
+      }
+    }
+    .dot {
+      @include dot;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+  }
 }
-@include phone{
-  .index{
-    span{
+@include phone {
+  .index {
+    span {
       display: block;
     }
-  }
-}
-/* header */
-header {
-  height: 1080px;
-  .main-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    p {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 30px;
-      letter-spacing: 6px;
-      line-height: 45px;
-    }
-    a {
-      font-family: "GenJyuuGothic-Bold";
-      letter-spacing: 1.5px;
-    }
-  }
-  .dot {
-    @include dot;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 0);
   }
 }
 
@@ -66,8 +66,8 @@ header {
     @include dot;
   }
 }
-@media(max-width: 1000px){
-  .about{
+@media (max-width: 1000px) {
+  .about {
     .img-box {
       width: 100%;
       height: 546px;
@@ -82,27 +82,27 @@ header {
     margin-top: 72px;
     @include dot;
   }
-  .spacing{
+  .spacing {
     width: 80%;
   }
 }
-@media (max-width: 1820px){
-  .service{
-    .spacing{
+@media (max-width: 1820px) {
+  .service {
+    .spacing {
       width: 100%;
     }
   }
 }
-@include desktop{
-  .service{
-    .spacing{
+@include desktop {
+  .service {
+    .spacing {
       width: 70%;
     }
   }
 }
-@include ipad{
-  .service{
-    .spacing{
+@include ipad {
+  .service {
+    .spacing {
       width: 100%;
     }
   }
@@ -154,14 +154,14 @@ header {
 .workflow {
   padding-bottom: 150px;
 }
-.workflow-content{
-  p{
+.workflow-content {
+  p {
     line-height: 30px;
   }
 }
 .work-item {
   width: 100%;
-  &.bg-color{
+  &.bg-color {
     background-color: #eeeeee;
   }
   .work-space {
@@ -190,7 +190,7 @@ header {
     margin: 10px 0;
   }
 }
-@media(max-width: 1400px){
+@media (max-width: 1400px) {
   .work-item {
     .work-space {
       width: 100%;
@@ -208,6 +208,8 @@ header {
 .learn-more {
   font-family: "GenJyuuGothic-Bold";
   font-size: 20px;
+  color: #000;
+  text-align: center;
   letter-spacing: 2px;
   line-height: 30px;
   padding: 12px 30px;
@@ -216,6 +218,8 @@ header {
   background-color: #fff;
   transition: all 0.3s;
   &:hover {
+    text-decoration: none;
+    color: #000;
     transform: scale(1.01);
     box-shadow: 0px 3px 6px #00000029;
   }

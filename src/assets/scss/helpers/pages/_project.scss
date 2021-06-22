@@ -1,0 +1,97 @@
+/* header */
+.project {
+    header {
+        height: 634px;
+        position: relative;
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            font-family: "FranklinGothicHeavy-Regular";
+            letter-spacing: 3px;
+        }
+    }
+}
+
+/* project wall */
+.project-wall {
+    padding: 70px 0 230px;
+}
+.wall-size{
+    width: 65% !important;
+}
+@media(max-width: 1700px){
+    .wall-size{
+        width: 80% !important;
+    }
+}
+@include desktop{
+    .wall-size{
+        width: 100% !important;
+    }
+}
+
+
+
+.project-menu {
+    width: 55%;
+    margin: 0 auto 70px;
+    a {
+        display: inline-block;
+        font-family: "GenJyuuGothic-Medium";
+        font-size: 1rem;
+        color: $s-dark-gray;
+        position: relative;
+        &:hover {
+            text-decoration: none;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: $s-yellow;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.2s ease-out;
+        }
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        &.line-on:after {
+            transform: scaleX(1);
+        }
+    }
+}
+@include desktop{
+    .project-menu{
+        width: 80% !important;
+    }
+}
+@include ipad{
+    .project-menu{
+        width: 100%;
+    }
+    .project-menu{
+        flex-wrap: wrap;
+        li{
+            width: 50%;
+        }
+    }
+}
+@include phone{
+    .project-menu{
+        flex-wrap: wrap;
+        li{
+            width: 100%;
+        }
+    }
+}

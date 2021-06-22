@@ -6,6 +6,7 @@ nav {
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
+  z-index: 999;
   h1 {
     font-family: "Gill Sans", "Gill Sans MT";
     letter-spacing: 1.86px;
@@ -81,7 +82,7 @@ nav {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-  &.black:after{
+  &.black:after {
     content: "";
     position: absolute;
     bottom: -6px;
@@ -97,9 +98,12 @@ nav {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+  &.line-on:after {
+    transform: scaleX(1);
+  }
 }
 
-/*footer*/
+/* footer */
 footer {
   padding: 76px 0 108px 0;
   font-family: "GenJyuuGothic-Medium";
@@ -132,7 +136,7 @@ footer {
 }
 @include desktop {
   footer {
-    .spacing{
+    .spacing {
       padding: 16px;
     }
   }
@@ -149,5 +153,38 @@ footer {
       border-width: 0;
       margin: 20px 0;
     }
+  }
+}
+
+/* go to top */
+.to-top {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  opacity: 0;
+  transition: all 0.3s;
+  .btn-style {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid $s-blue;
+    color: $s-blue;
+    transition: all 0.3s;
+    &:hover {
+      color: $s-yellow;
+      border: 3px solid $s-yellow;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+  i {
+    display: block;
+    font-size: 30px;
+  }
+  &.active{
+    opacity: 1;
   }
 }

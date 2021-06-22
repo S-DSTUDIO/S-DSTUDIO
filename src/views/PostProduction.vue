@@ -1,6 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an Post page</h1>
+  <div class="post">
+    <header class="bg-s-gray">
+      <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
+    </header>
   </div>
 </template>
 
