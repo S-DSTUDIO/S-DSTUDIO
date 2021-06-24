@@ -1,0 +1,188 @@
+<template>
+    <div class="filmclip">
+      <img v-for="(item, i) in picNum" :key="i+item"
+          :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+          +'/small/'+ item +'.png')"
+          @click="isOpen = true;showSlide(i)">
+      <!-- lightbox-modal -->
+      <div id="lightbox-modal" class="lightbox-modal" :class="{ 'active': isOpen == true }">
+        <span class="close cursor" @click="isOpen = false">&times;</span>
+        <div class="modal-content">
+          <div class="slides" v-for="(item, i) in picNum" :key="i"
+          :class="{ 'active': slideIndex == i }">
+            <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+            +'/big/'+ item +'.png')" style="width:100%">
+          </div>
+          <!-- Next/previous controls -->
+          <a class="prev" @click="slideIndex -= 1"
+          :class="{ 'active':  slideIndex > 0 }">&#10094;</a>
+          <a class="next" @click="slideIndex += 1"
+          :class="{ 'active':  slideIndex < 5 }">&#10095;</a>
+          <!-- Thumbnail image controls -->
+          <div class="row">
+            <div class="column" v-for="(item, i) in picNum" :key="i"
+            @click="showSlide(i)">
+              <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+              +'/small/'+ item +'.png')" class="demo" :class="{ 'active': slideIndex == i }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+  props: ['lightbox'],
+  data() {
+    return {
+      picNum: [1, 2, 3, 4, 5, 6],
+      isOpen: false,
+      slideIndex: 0,
+    };
+  },
+  methods: {
+    showSlide(index = 0) {
+      this.slideIndex = index;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.filmclip>img{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+  &:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 1px 1px #FFBB00;
+  }
+}
+img{
+  display: block;
+}
+
+/* The Modal (background) */
+.lightbox-modal{
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #000;
+  animation: open 0.3s ease-in-out;
+  .col{
+    padding: 0;
+  }
+  &.active{
+    display: block;
+  }
+}
+
+/* Modal Content */
+.modal-content{
+  position: relative;
+  width: 80%;
+  margin: auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* slides */
+.slides{
+  display: none;
+  &.active{
+    display: block;
+  }
+}
+
+/* 小圖等比例 */
+.column{
+  width: 16.55%;
+}
+img.demo{
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+  transition: all 0.3s;
+  &.active,&:hover{
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  &:hover,&:focus{
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+/* Next & previous buttons */
+.prev,.next {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  &:hover{
+    text-decoration: none;
+  }
+  &.active{
+    display: block;
+  }
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* open animation */
+@keyframes open {
+  0%{
+    display: none;
+    opacity: 0;
+    transform: scale(0);
+    }
+  1%{
+    display: block;
+    opacity: 0;
+    transform: scale(0);
+    }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+</style>

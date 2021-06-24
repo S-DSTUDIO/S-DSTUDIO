@@ -8,8 +8,8 @@ import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required } from 'vee-validate/dist/rules';
 import router from './router';
 import 'bootstrap';
-import App from './App.vue';
 import 'leaflet/dist/leaflet.css';
+import App from './App.vue';
 
 window.$ = $;
 

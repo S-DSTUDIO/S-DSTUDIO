@@ -1,6 +1,6 @@
 <template>
   <div class="project-card">
-    <router-link :to="`/singleproject/${project.ID}`">
+    <router-link :to="`/singleproject/${project.Page}-${project.ID}`" @click.native="toTop">
       <div class="card-size">
         <img :src="require('@/assets/images/project-card/'+ project.Page +'/'+ project.ID + '.png')"
         :alt="project.Name">
@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       title: '',
-      commercial: this.project.FilterTarget === 'Commercial' || this.project.Page === 'post',
+      commercial: this.project.FilterTarget === 'Commercial' || this.project.Page === 'postproduction',
       secondTitle: '',
       haveSecond: false,
     };
@@ -52,6 +52,9 @@ export default {
         this.secondTitle = nameArray[1];
         this.haveSecond = true;
       }
+    },
+    toTop() {
+      window.scroll(0, 0);
     },
   },
   created() {

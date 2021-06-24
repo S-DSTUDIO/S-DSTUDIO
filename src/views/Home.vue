@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Loading :isLoading="isLoading"></Loading>
     <nav class="navbar navbar-expand-sm">
       <h1 class="mb-0 navbar-brand">
         <router-link :class="{ 'text-black': nowNav == 'contact' }" to="/"
@@ -10,12 +11,9 @@
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#mainNavbar"
-      >
-        <i
-          class="fas fa-bars text-white"
-          :class="{ 'text-black': nowNav == 'contact' }"
-        ></i>
+        data-target="#mainNavbar">
+        <i class="fas fa-bars text-white"
+          :class="{ 'text-black': nowNav == 'contact' }"></i>
       </button>
       <div id="mainNavbar" class="collapse navbar-collapse flex-row-reverse">
         <ul class="d-sm-flex main-item">
@@ -26,9 +24,7 @@
               :class="{
                 'text-black': nowNav == 'contact',
                 black: nowNav == 'contact',
-                'line-on': nowNav == 'home',
-              }"
-            >
+                'line-on': nowNav == 'home',}">
               HOME
             </router-link>
           </li>
@@ -75,13 +71,11 @@
       </div>
     </nav>
     <router-view></router-view>
-    <footer class="bg-black px-3 px-md-0">
+    <footer class="bg-black px-3 px-md-0" :class="{ 'white-style': nowNav == 'single' }">
       <ul class="d-flex justify-content-center align-items-center text-white">
         <li class="d-flex align-items-center basic-info spacing">
-          <img
-            src="@/assets/images/logo/s-d-logo_white.png"
-            alt="S-D STUDIO Logo"
-          />
+          <img v-if="isWhite" src="@/assets/images/logo/s-d-logo_white.png" alt="S-D STUDIO Logo"/>
+          <img v-else src="@/assets/images/logo/s-d-logo_black.png" alt="S-D STUDIO Logo"/>
           <ul>
             <li>思帝影像事業企業社</li>
             <li>S-D STUDIO</li>
@@ -123,12 +117,19 @@
 </template>
 
 <script>
+import Loading from '@/components/Loading.vue';
+
 export default {
   data() {
     return {
       nowNav: 'home',
       toTop: false,
+      isWhite: true,
+      isLoading: false,
     };
+  },
+  components: {
+    Loading,
   },
   methods: {
     scrollBtn() {
@@ -150,6 +151,13 @@ export default {
     const vm = this;
     vm.$bus.$on('changeNav', (nav) => {
       vm.nowNav = nav;
+      vm.isWhite = true;
+      if (nav === 'single') {
+        vm.isWhite = false;
+      }
+    });
+    vm.$bus.$on('loading', (value) => {
+      vm.isLoading = value;
     });
   },
   mounted() {

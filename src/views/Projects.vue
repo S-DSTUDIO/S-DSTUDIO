@@ -1,6 +1,5 @@
 <template>
   <div class="project">
-    <Loading :isLoading="isLoading"></Loading>
     <header class="bg-s-gray">
       <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
     </header>
@@ -35,7 +34,6 @@
 
 <script>
 import ProjectCard from '@/components/ProjectCard.vue';
-import Loading from '@/components/Loading.vue';
 
 export default {
   data() {
@@ -52,7 +50,6 @@ export default {
   },
   components: {
     ProjectCard,
-    Loading,
   },
   computed: {
     filterData() {
@@ -78,7 +75,7 @@ export default {
     getData() {
       const vm = this;
       const api = 'https://spreadsheets.google.com/feeds/list/1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA/1/public/values?alt=json';
-      vm.isLoading = true;
+      vm.$bus.$emit('loading', true);
       vm.$http.get(api).then((res) => {
         const newData = [];
         const data = res.data.feed.entry;
@@ -100,9 +97,8 @@ export default {
           };
           newData.push(single);
         });
-        vm.data = newData.filter((item) => item.Page === 'project').reverse();
-        vm.isLoading = false;
-        console.log(vm.data);
+        vm.data = newData.filter((item) => item.Page === 'projects').reverse();
+        vm.$bus.$emit('loading', false);
       });
     },
   },

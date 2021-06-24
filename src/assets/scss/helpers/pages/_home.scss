@@ -133,6 +133,18 @@ footer {
   .email {
     margin: auto 0;
   }
+  &.white-style{
+    background-color: #fff !important;
+    li{
+      color: #000;
+    }
+    .address{
+      border-color: #000;
+    }
+    i{
+      color: #000;
+    }
+  }
 }
 @include desktop {
   footer {
@@ -169,7 +181,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 50%;
     border: 3px solid $s-blue;
     color: $s-blue;
