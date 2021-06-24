@@ -125,58 +125,72 @@
             <ValidationProvider name="name" rules="required" v-slot="{ errors }">
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="name">姓名 Name※</label>
-                  <input class="col-xl-10 form-control input-style" type="text" id="name"
+                <div class="col-xl-10">
+                  <input class="form-control input-style" type="text" id="name"
                   v-model="customer.name">
                   <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                </div>
               </div>
             </ValidationProvider>
             <ValidationProvider name="email" rules="required|email" v-slot="{ errors }">
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="email">信箱 E-mail※</label>
-                <input class="col-xl-10 form-control input-style" type="email" id="email"
-                inputmode="email"
-                v-model="customer.email">
-                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                <div class="col-xl-10">
+                  <input class="form-control input-style" type="email" id="email"
+                  inputmode="email"
+                  v-model="customer.email">
+                  <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                </div>
               </div>
             </ValidationProvider>
             <ValidationProvider name="email" rules="tel" v-slot="{ errors }">
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="tel">連絡電話 TEL</label>
-                <input class="col-xl-10 form-control input-style" type="tel" id="tel"
-                inputmode="tel"
-                v-model="customer.tel">
-                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                <div class="col-xl-10">
+                  <input class="form-control input-style" type="tel" id="tel"
+                  inputmode="tel"
+                  v-model="customer.tel">
+                  <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                </div>
               </div>
             </ValidationProvider>
             <div class="form-group row">
               <label class="col-xl-2 col-form-label" for="company">公司/單位 Company</label>
-              <input class="col-xl-10 form-control input-style" type="text" id="company"
-              v-model="customer.company">
+              <div class="col-xl-10">
+                <input class="form-control input-style" type="text" id="company"
+                v-model="customer.company">
+              </div>
             </div>
             <div class="form-group row">
               <label class="col-xl-2 col-form-label" for="role">職稱 Role</label>
-              <input class="col-xl-10 form-control input-style" type="text" id="role"
-              v-model="customer.role">
+              <div class="col-xl-10">
+                <input class="form-control input-style" type="text" id="role"
+                v-model="customer.role">
+              </div>
             </div>
             <ValidationProvider name="message" rules="required" v-slot="{ errors }">
               <div class="form-group row">
                 <label class="col-xl-2 col-form-label" for="message">需求※ <br>Your message</label>
-                <textarea class="col-xl-10 form-control input-style" name="message" id="message"
-                cols="30" rows="10" v-model="customer.message"></textarea>
-                <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                <div class="col-xl-10">
+                  <textarea class="form-control input-style" name="message" id="message"
+                  cols="30" rows="10" v-model="customer.message"></textarea>
+                  <span class="d-block text-danger mt-1">{{ errors[0] }}</span>
+                </div>
               </div>
             </ValidationProvider>
             <div class="form-group row">
               <label class="col-xl-2 col-form-label" for="budget">預算 Budget</label>
-              <select class="input-style select-width" name="budget" id="budget"
-              v-model="customer.budget">
-                <option value="">-- 請選擇預算 --</option>
-                <option value="30萬以下">30萬以下</option>
-                <option value="30萬-60萬">30萬-60萬</option>
-                <option value="60萬-100萬">60萬-100萬</option>
-                <option value="100萬-150萬">100萬-150萬</option>
-                <option value="150">150</option>
-              </select>
+              <div class="col-xl-10">
+                <select class="input-style select-width" name="budget" id="budget"
+                v-model="customer.budget">
+                  <option value="">-- 請選擇預算 --</option>
+                  <option value="30萬以下">30萬以下</option>
+                  <option value="30萬-60萬">30萬-60萬</option>
+                  <option value="60萬-100萬">60萬-100萬</option>
+                  <option value="100萬-150萬">100萬-150萬</option>
+                  <option value="150">150</option>
+                </select>
+              </div>
             </div>
             <button class="btn btn-s-blue btn-style
             align-self-xl-end align-self-center mt-3 mt-xl-0" type="submit"

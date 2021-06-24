@@ -1,5 +1,6 @@
 <template>
   <div class="project">
+    <Loading :isLoading="isLoading"></Loading>
     <header class="bg-s-gray">
       <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
     </header>
@@ -15,8 +16,7 @@
         </li>
         <li class="mb-3 mb-md-0">
           <router-link to="/projects/documentary" :class="{ 'line-on':  nowNav == 'documentary'}"
-        >紀錄片｜DOCUMENTARY
-          </router-link>
+        >紀錄片｜DOCUMENTARY</router-link>
         </li>
         <li><router-link to="/projects/behind" :class="{ 'line-on':  nowNav == 'behind'}"
         >活動及花絮紀錄｜BEHIND THE SCENE</router-link>
@@ -35,11 +35,13 @@
 
 <script>
 import ProjectCard from '@/components/ProjectCard.vue';
+import Loading from '@/components/Loading.vue';
 
 export default {
   data() {
     return {
       data: [],
+      isLoading: false,
       nowNav: 'all',
     };
   },
@@ -50,6 +52,7 @@ export default {
   },
   components: {
     ProjectCard,
+    Loading,
   },
   computed: {
     filterData() {
@@ -74,9 +77,32 @@ export default {
   methods: {
     getData() {
       const vm = this;
-      const api = 'https://sheet.best/api/sheets/74ea92d8-e6fd-48d9-a8e2-0f8cce12fc14';
+      const api = 'https://spreadsheets.google.com/feeds/list/1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA/1/public/values?alt=json';
+      vm.isLoading = true;
       vm.$http.get(api).then((res) => {
-        vm.data = res.data.filter((item) => item.Page === 'Projects').reverse();
+        const newData = [];
+        const data = res.data.feed.entry;
+        data.forEach((item) => {
+          const single = {
+            ID: item.gsx$id.$t,
+            Name: item.gsx$name.$t,
+            Category: item.gsx$category.$t,
+            Company: item.gsx$company.$t,
+            CreditTitle: item.gsx$credittitle.$t,
+            CreditContent: item.gsx$creditcontent.$t,
+            OtherEvent: item.gsx$otherevent.$t,
+            OtherContent: item.gsx$othercontent.$t,
+            URL: item.gsx$url.$t,
+            Page: item.gsx$page.$t,
+            Behind: item.gsx$behind.$t,
+            Series: item.gsx$series.$t,
+            FilterTarget: item.gsx$filtertarget.$t,
+          };
+          newData.push(single);
+        });
+        vm.data = newData.filter((item) => item.Page === 'project').reverse();
+        vm.isLoading = false;
+        console.log(vm.data);
       });
     },
   },

@@ -20,9 +20,14 @@ const router = new VueRouter({
         component: () => import('../views/Projects.vue'),
       },
       {
-        path: 'postproduction',
+        path: 'postproduction/:id',
         name: 'PostProduction',
         component: () => import('../views/PostProduction.vue'),
+      },
+      {
+        path: 'singleproject/:id',
+        name: 'Singleproject',
+        component: () => import('../views/SingleProject.vue'),
       },
       {
         path: 'contact',

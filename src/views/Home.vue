@@ -47,7 +47,7 @@
           </li>
           <li>
             <router-link
-              to="/postproduction"
+              to="/postproduction/all"
               class="nav-item line-style"
               :class="{
                 'text-black': nowNav == 'contact',

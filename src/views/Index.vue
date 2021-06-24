@@ -14,19 +14,22 @@
       </ul>
       <!-- <img src="" alt=""> -->
     </header>
-    <section class="about bg-white d-flex flex-column align-items-center  px-2 px-md-0">
+    <section class="about bg-white d-flex flex-column align-items-center  px-2">
       <div class="d-flex justify-content-center
-      align-items-center
-      align-items-xl-end
-      flex-column flex-xl-row">
+        align-items-center
+        align-items-xl-start
+        flex-column flex-xl-row">
         <div class="img-box bg-s-gray"></div>
-        <div class="mt-3 ml-0 ml-xl-4 about-content">
+        <div class="mt-4 mt-xl-2 ml-0 ml-xl-4 about-content">
           <h2 class="text-center text-xl-left">ABOUT US <span class="breakline">關於我們</span></h2>
           <p class="mt-2">
-            這裡應該是需要一段介紹文字，讓我想一下要打什麼
-            <br />才好。 <br />this spaceneeds a brief, let me think of it.
-            <br />應該會放一些關於團隊的理念 <br />What we strive to do in this
-            industry
+            S-D STUDIO 思帝影像事業企業社
+            <br>於2013年5月成立至今，秉持著對創作的熱情與細膩的拍攝手法，
+            致力於各式類型影像的發想與製作，善用鏡頭語言傳達內心底蘊的情感，
+            在沒有設限的畫面空間裡，刻劃每一個故事中，獨具價值的真摯溫度。
+            倘若此刻或未來，你剛好有個故事，那不妨就讓我們與你，一同來說這故事吧！
+            <br>this space needs a brief, let me think of it.
+            <br>What we strive to do in this industry
           </p>
         </div>
       </div>
@@ -166,6 +169,7 @@ export default {
   },
   created() {
     const vm = this;
+    vm.scrollPoint();
     vm.$bus.$emit('changeNav', 'home');
   },
 };

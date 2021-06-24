@@ -1,16 +1,117 @@
 <template>
   <div class="post">
+    <Loading :isLoading="isLoading"></Loading>
     <header class="bg-s-gray">
-      <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
+      <h2 class="text-white">後期製作 <span>POST-PRODUCTION</span></h2>
     </header>
+    <section class="project-wall">
+      <ul class="d-flex justify-content-between project-menu">
+        <li class="mb-3 mb-lg-0">
+          <router-link to="/postproduction/all" :class="{ 'line-on':  nowNav == 'all'}"
+          >全部｜All</router-link>
+        </li>
+        <li class="mb-3 mb-md-0">
+          <router-link to="/postproduction/colorgrading"
+          :class="{ 'line-on':  nowNav == 'colorgrading'}"
+        >調光｜color grading</router-link>
+        </li>
+        <li class="mb-3 mb-md-0">
+          <router-link to="/postproduction/editing" :class="{ 'line-on':  nowNav == 'editing'}"
+        >剪輯｜EDITING</router-link>
+        </li>
+        <li><router-link to="/postproduction/2dfx" :class="{ 'line-on':  nowNav == '2dfx'}"
+        >2D動畫｜2D FX</router-link>
+        </li>
+      </ul>
+      <div class="container-fluid wall-size">
+        <div class="row">
+          <ProjectCard :project="item" v-for="item in filterData" :key="item.id"
+          class="mb-3 col-md-6">
+          </ProjectCard>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
+import ProjectCard from '@/components/ProjectCard.vue';
+import Loading from '@/components/Loading.vue';
+
 export default {
+  data() {
+    return {
+      data: [],
+      isLoading: false,
+      nowNav: 'all',
+    };
+  },
+  components: {
+    ProjectCard,
+    Loading,
+  },
+  watch: {
+    $route() {
+      this.nowNav = this.$route.params.id;
+    },
+  },
+  computed: {
+    filterData() {
+      const vm = this;
+      const target = vm.nowNav;
+      const filterData = vm.data.filter((item) => {
+        const factor = item.FilterTarget.split(',');
+        let filterItem = '';
+        if (target === 'all') {
+          filterItem = item;
+        } if (target === 'colorgrading' && factor.indexOf('Color') !== -1) {
+          filterItem = item;
+        } if (target === 'editing' && factor.indexOf('Editing') !== -1) {
+          filterItem = item;
+        } if (target === '2dfx' && factor.indexOf('2d') !== -1) {
+          filterItem = item;
+        }
+        return filterItem;
+      });
+      return filterData;
+    },
+  },
+  methods: {
+    getData() {
+      const vm = this;
+      const api = 'https://spreadsheets.google.com/feeds/list/1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA/1/public/values?alt=json';
+      vm.isLoading = true;
+      vm.$http.get(api).then((res) => {
+        const newData = [];
+        const data = res.data.feed.entry;
+        data.forEach((item) => {
+          const single = {
+            ID: item.gsx$id.$t,
+            Name: item.gsx$name.$t,
+            Category: item.gsx$category.$t,
+            Company: item.gsx$company.$t,
+            CreditTitle: item.gsx$credittitle.$t,
+            CreditContent: item.gsx$creditcontent.$t,
+            OtherEvent: item.gsx$otherevent.$t,
+            OtherContent: item.gsx$othercontent.$t,
+            URL: item.gsx$url.$t,
+            Page: item.gsx$page.$t,
+            Behind: item.gsx$behind.$t,
+            Series: item.gsx$series.$t,
+            FilterTarget: item.gsx$filtertarget.$t,
+          };
+          newData.push(single);
+        });
+        vm.data = newData.filter((item) => item.Page === 'post');
+        vm.isLoading = false;
+      });
+    },
+  },
   created() {
     const vm = this;
+    vm.getData();
     vm.$bus.$emit('changeNav', 'post');
+    vm.nowNav = this.$route.params.id;
   },
 };
 </script>

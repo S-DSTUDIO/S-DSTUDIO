@@ -1,0 +1,29 @@
+/* header */
+.post {
+    header {
+        height: 634px;
+        position: relative;
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            position: absolute;
+            white-space: nowrap;
+            top: 50%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+        }
+        span {
+            font-family: "FranklinGothicHeavy-Regular";
+            letter-spacing: 3px;
+        }
+    }
+}
+@include ipad{
+    .post{
+        header{
+            h2{
+                left: 50% !important;
+            }
+        }        
+    }
+}

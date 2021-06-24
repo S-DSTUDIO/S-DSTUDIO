@@ -48,10 +48,12 @@
 /* About us */
 .about {
   .about-content {
+    width: 30%;
     p {
       font-family: "GenJyuuGothic-Medium";
       font-size: 20px;
       letter-spacing: 2px;
+      text-align: justify;
     }
   }
   line-height: 1.2;
@@ -66,12 +68,26 @@
     @include dot;
   }
 }
+@include desktop{
+  .about{
+    .about-content{
+      width: 60%;
+    }
+  }
+}
 @media (max-width: 1000px) {
   .about {
     .img-box {
       width: 100%;
       height: 546px;
       border-radius: 10px;
+    }
+  }
+}
+@include ipad{
+  .about{
+    .about-content{
+      width: 90%;
     }
   }
 }

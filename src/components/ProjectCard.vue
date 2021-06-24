@@ -1,24 +1,26 @@
 <template>
   <div class="project-card">
-    <div class="card-size">
-      <img :src="require('@/assets/images/project-card/'+ project.ID + '.png')"
-      :alt="project.Name">
-      <div class="content"
-      :class="{
-        'commercial': this.project.FilterTarget == 'Commercial',
-        'documentary': this.project.FilterTarget == 'Documentary',
-        'behind': this.project.FilterTarget == 'Behind'}">
-        <div class="content-pos text-white">
-          <div class="play mb-2">
-            <img src="@/assets/images/play.png" alt="play">
+    <router-link :to="`/singleproject/${project.ID}`">
+      <div class="card-size">
+        <img :src="require('@/assets/images/project-card/'+ project.Page +'/'+ project.ID + '.png')"
+        :alt="project.Name">
+        <div class="content"
+        :class="{
+          'commercial': commercial,
+          'documentary': this.project.FilterTarget == 'Documentary',
+          'behind': this.project.FilterTarget == 'Behind'}">
+          <div class="content-pos text-white">
+            <div class="play mb-2">
+              <img src="@/assets/images/play.png" alt="play">
+            </div>
+            <div class="title">{{ title }}</div>
+            <div class="title" v-if="haveSecond">{{ secondTitle }}</div>
+            <div class="depiction">{{ project.Category }}</div>
+            <div class="depiction">{{ project.Company }}</div>
           </div>
-          <div class="title">{{ title }}</div>
-          <div class="title" v-if="haveSecond">{{ secondTitle }}</div>
-          <div class="depiction">{{ project.Category }}</div>
-          <div class="depiction">{{ project.Company }}</div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ export default {
   data() {
     return {
       title: '',
+      commercial: this.project.FilterTarget === 'Commercial' || this.project.Page === 'post',
       secondTitle: '',
       haveSecond: false,
     };
@@ -82,12 +85,15 @@ export default {
     transition: all 0.5s;
     &:hover .content-pos{
       transform: translate(0,0);
+      opacity: 1;
     }
   }
   .content-pos{
     position: absolute;
     bottom: 30px;
     left: 30px;
+    padding-right: 24px;
+    opacity: 0;
     transform: translate(0,500px);
     transition: all 0.5s;
   }
