@@ -12,22 +12,6 @@
   /* header */
   header {
     height: 1080px;
-    .main-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 30px;
-        letter-spacing: 6px;
-        line-height: 45px;
-      }
-      a {
-        font-family: "GenJyuuGothic-Bold";
-        letter-spacing: 1.5px;
-      }
-    }
     .dot {
       @include dot;
       position: absolute;
@@ -37,11 +21,24 @@
     }
   }
 }
+@include ipad {
+  .index{
+    header{
+      height: 720px;
+    }
+  }
+}
 @include phone {
   .index {
     span {
       display: block;
     }
+    header{
+      height: 540px;
+    }
+  }
+  header{
+    height: 540px;
   }
 }
 
@@ -59,9 +56,11 @@
   line-height: 1.2;
   padding: 100px 0 0;
   .img-box {
-    width: 970px;
-    height: 546px;
-    border-radius: 10px;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   }
   .dot {
     margin-top: 72px;
@@ -78,8 +77,6 @@
 @media (max-width: 1000px) {
   .about {
     .img-box {
-      width: 100%;
-      height: 546px;
       border-radius: 10px;
     }
   }
@@ -126,14 +123,21 @@
 
 .service-items {
   margin-top: 40px;
+  .items-content{
+    background: no-repeat;
+    overflow: hidden;
+    opacity: 0.9;
+    transition: all 0.3s;
+    &:hover{
+      opacity: 1;
+    }
+  }
   a {
     display: block;
     width: 360px;
     height: 360px;
     padding: 20px;
     color: #fff;
-    background-color: rgb(32, 66, 66);
-    border: 1px solid #707070;
     border-radius: 10px;
     &:hover {
       text-decoration: none;

@@ -1,6 +1,7 @@
 <template>
   <div class="project">
-    <header class="bg-s-gray">
+    <header class="bg-s-gray"
+    :style="{ backgroundImage: `url(${require('@/assets/images/banner/projects.png')})` }">
       <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
     </header>
     <section class="project-wall">

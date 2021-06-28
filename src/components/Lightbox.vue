@@ -4,26 +4,39 @@
           :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
           +'/small/'+ item +'.png')"
           @click="isOpen = true;showSlide(i)">
+      <div class="behind" v-if="behind">
+        <h3 class="text-center">BEHIND THE SCENE</h3>
+        <div class="row">
+          <div class="col-md-6 mb-3" v-for="(item, i) in picNum" :key="i+item">
+            <img
+          :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+          +'/behindscenes/'+ item +'.png')">
+          </div>
+        </div>
+      </div>
       <!-- lightbox-modal -->
       <div id="lightbox-modal" class="lightbox-modal" :class="{ 'active': isOpen == true }">
         <span class="close cursor" @click="isOpen = false">&times;</span>
-        <div class="modal-content">
-          <div class="slides" v-for="(item, i) in picNum" :key="i"
-          :class="{ 'active': slideIndex == i }">
-            <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
-            +'/big/'+ item +'.png')" style="width:100%">
-          </div>
-          <!-- Next/previous controls -->
-          <a class="prev" @click="slideIndex -= 1"
-          :class="{ 'active':  slideIndex > 0 }">&#10094;</a>
-          <a class="next" @click="slideIndex += 1"
-          :class="{ 'active':  slideIndex < 5 }">&#10095;</a>
-          <!-- Thumbnail image controls -->
-          <div class="row">
-            <div class="column" v-for="(item, i) in picNum" :key="i"
-            @click="showSlide(i)">
+        <div class="modal-pos">
+          <div class="modal-content">
+            <!-- main big pic-->
+            <div class="slides" v-for="(item, i) in picNum" :key="i"
+            :class="{ 'active': slideIndex == i }">
               <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
-              +'/small/'+ item +'.png')" class="demo" :class="{ 'active': slideIndex == i }">
+              +'/big/'+ item +'.png')" style="width:100%">
+            </div>
+            <!-- Next/previous controls -->
+            <a class="prev" @click="slideIndex -= 1"
+            :class="{ 'active':  slideIndex > 0 }">&#10094;</a>
+            <a class="next" @click="slideIndex += 1"
+            :class="{ 'active':  slideIndex < 5 }">&#10095;</a>
+            <!-- Thumbnail image controls -->
+            <div class="row">
+              <div class="column" v-for="(item, i) in picNum" :key="i"
+              @click="showSlide(i)">
+                <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+                +'/small/'+ item +'.png')" class="demo" :class="{ 'active': slideIndex == i }">
+              </div>
             </div>
           </div>
         </div>
@@ -33,7 +46,7 @@
 
 <script>
 export default {
-  props: ['lightbox'],
+  props: ['lightbox', 'behind'],
   data() {
     return {
       picNum: [1, 2, 3, 4, 5, 6],
@@ -50,6 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .filmclip>img{
   display: block;
   width: 100%;
@@ -60,16 +74,26 @@ export default {
     box-shadow: 0px 0px 1px 1px #FFBB00;
   }
 }
+
+h3{
+    margin: 100px 0 40px;
+
+}
 img{
   display: block;
 }
 
+.behind{
+  img{
+    width: 100%;
+    height: auto;
+  }
+}
 /* The Modal (background) */
 .lightbox-modal{
   display: none;
   position: fixed;
   z-index: 999;
-  padding-top: 100px;
   left: 0;
   top: 0;
   width: 100%;
@@ -85,10 +109,16 @@ img{
   }
 }
 
+.modal-pos{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
 /* Modal Content */
 .modal-content{
   position: relative;
-  width: 80%;
+  width: 1200px;
   margin: auto;
   padding: 0;
   overflow: hidden;
@@ -104,7 +134,7 @@ img{
 
 /* 小圖等比例 */
 .column{
-  width: 16.55%;
+  width: 16.56%;
 }
 img.demo{
   width: 100%;

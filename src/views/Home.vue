@@ -1,77 +1,62 @@
 <template>
   <div class="home">
     <Loading :isLoading="isLoading"></Loading>
-    <nav class="navbar navbar-expand-sm">
+    <nav class="navbar navbar-expand-sm justify-content-between">
       <h1 class="mb-0 navbar-brand">
-        <router-link :class="{ 'text-black': nowNav == 'contact' }" to="/"
-          >S-D STUDIO</router-link
-        >
+        <router-link :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"
+        to="/">S-D STUDIO</router-link>
       </h1>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#mainNavbar">
+      <button class="btn" @click="isNavOpen = !isNavOpen" type="button">
         <i class="fas fa-bars text-white"
-          :class="{ 'text-black': nowNav == 'contact' }"></i>
+          :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"></i>
       </button>
-      <div id="mainNavbar" class="collapse navbar-collapse flex-row-reverse">
-        <ul class="d-sm-flex main-item">
-          <li>
-            <router-link
-              to="/"
-              class="nav-item line-style"
-              :class="{
-                'text-black': nowNav == 'contact',
-                black: nowNav == 'contact',
-                'line-on': nowNav == 'home',}">
-              HOME
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/projects/all"
-              class="nav-item line-style"
-              :class="{
-                'text-black': nowNav == 'contact',
-                black: nowNav == 'contact',
-                'line-on': nowNav == 'projects',
-              }"
-            >
-              PROJECTS
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/postproduction/all"
-              class="nav-item line-style"
-              :class="{
-                'text-black': nowNav == 'contact',
-                black: nowNav == 'contact',
-                'line-on': nowNav == 'post',
-              }"
-            >
-              POST-PRODUCTION
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/contact"
-              class="nav-item line-style"
-              :class="{
-                'text-black': nowNav == 'contact',
-                black: nowNav == 'contact',
-                'line-on': nowNav == 'contact',
-              }"
-            >
-              CONTACT
-            </router-link>
-          </li>
-        </ul>
-      </div>
+        <div id="mainNavbar" class="flex-row-reverse" :class="{ 'active': isNavOpen }">
+          <ul class="d-sm-flex main-item">
+            <li>
+              <a class="text-white text-right" @click="isNavOpen = !isNavOpen">&times;</a>
+            </li>
+            <li>
+              <router-link to="/" class="nav-item line-style"
+                :class="{
+                  'black': nowNav == 'contact' || nowNav =='series',
+                  'line-on': nowNav == 'home',}"
+                @click.native="isNavOpen = !isNavOpen">
+                HOME
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/projects/all" class="nav-item line-style"
+                :class="{
+                  'black': nowNav == 'contact' || nowNav =='series',
+                  'line-on': nowNav == 'projects',}"
+                @click.native="isNavOpen = !isNavOpen">
+                PROJECTS
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/postproduction/all" class="nav-item line-style"
+                :class="{
+                  'black': nowNav == 'contact' || nowNav =='series',
+                  'line-on': nowNav == 'post',}"
+                @click.native="isNavOpen = !isNavOpen">
+                POST-PRODUCTION
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/contact" class="nav-item line-style"
+                :class="{
+                  'black': nowNav == 'contact' || nowNav =='series',
+                  'line-on': nowNav == 'contact',}"
+                @click.native="isNavOpen = !isNavOpen">
+                CONTACT
+              </router-link>
+            </li>
+          </ul>
+        </div>
     </nav>
     <router-view></router-view>
-    <footer class="bg-black px-3 px-md-0" :class="{ 'white-style': nowNav == 'single' }">
+    <footer class="bg-black px-3 px-md-0"
+    :class="{ 'white-style': nowNav == 'single' || nowNav =='series' }">
       <ul class="d-flex justify-content-center align-items-center text-white">
         <li class="d-flex align-items-center basic-info spacing">
           <img v-if="isWhite" src="@/assets/images/logo/s-d-logo_white.png" alt="S-D STUDIO Logo"/>
@@ -83,18 +68,15 @@
               <a
                 href="https://www.facebook.com/selfdirectedstudio"
                 target="_blank"
-                ><i class="fab fa-facebook-f"></i
-              ></a>
+                ><i class="fab fa-facebook-f"></i></a>
               <a
                 href="https://www.youtube.com/channel/UCGawabA6bnVLKxzzDdd5r0Q"
                 target="_blank"
-                ><i class="fab fa-youtube"></i
-              ></a>
+                ><i class="fab fa-youtube"></i></a>
               <a
                 href="https://www.instagram.com/selfdirectedstudio/"
                 target="_blank"
-                ><i class="fab fa-instagram"></i
-              ></a>
+                ><i class="fab fa-instagram"></i></a>
             </li>
           </ul>
         </li>
@@ -126,6 +108,7 @@ export default {
       toTop: false,
       isWhite: true,
       isLoading: false,
+      isNavOpen: false,
     };
   },
   components: {

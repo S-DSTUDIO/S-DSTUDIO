@@ -1,6 +1,7 @@
 <template>
   <div class="project-card">
-    <router-link :to="`/singleproject/${project.Page}-${project.ID}`" @click.native="toTop">
+    <router-link :to="`/singleproject/${project.Page}-${project.ID}`"
+    @click.native="toTop">
       <div class="card-size">
         <img :src="require('@/assets/images/project-card/'+ project.Page +'/'+ project.ID + '.png')"
         :alt="project.Name">

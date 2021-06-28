@@ -1,25 +1,16 @@
 <template>
   <div class="index">
-    <header class="bg-s-gray">
-      <div class="main-content text-center">
-        <p class="mb-4 text-white">台灣中油足球隊 <br />正面突破</p>
-        <a href="#" class="btn btn-outline-white">看影片 Watch Video</a>
-      </div>
-      <ul class="d-flex justify-content-between dot">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <!-- <img src="" alt=""> -->
+    <header>
+      <Swiper></Swiper>
     </header>
     <section class="about bg-white d-flex flex-column align-items-center  px-2">
       <div class="d-flex justify-content-center
         align-items-center
         align-items-xl-start
         flex-column flex-xl-row">
-        <div class="img-box bg-s-gray"></div>
+        <div class="img-box">
+          <img src="@/assets/images/banner/About Us.png" alt="About Us">
+        </div>
         <div class="mt-4 mt-xl-2 ml-0 ml-xl-4 about-content">
           <h2 class="text-center text-xl-left">ABOUT US <span class="breakline">關於我們</span></h2>
           <p class="mt-2">
@@ -51,10 +42,12 @@
       <div class="container-fluid service-items spacing">
         <div class="row">
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
-          mb-3 mb-xl-0">
+          mb-3 mb-xl-0 items-content">
             <router-link class="d-flex flex-column justify-content-between"
-            to="/projects/commercial" @click.native="scrollPoint">
-              <div class="category">
+            to="/projects/commercial" @click.native="scrollPoint"
+            :style="{ backgroundImage:
+            `url(${require('@/assets/images/banner/commercialfilm.png')})` }">
+              <div class="category" >
                 <h3 class="mb-2">廣告</h3>
                 <p>企業形象廣告｜產品廣告 <br />活動宣傳｜招募影片</p>
               </div>
@@ -62,9 +55,11 @@
             </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
-          mb-3 mb-sm-0">
+          mb-3 mb-sm-0 items-content">
             <router-link class="d-flex flex-column justify-content-between"
-            to="/projects/documentary" @click.native="scrollPoint">
+            to="/projects/documentary" @click.native="scrollPoint"
+            :style="{ backgroundImage:
+            `url(${require('@/assets/images/banner/Documentary.png')})` }">
               <div class="category">
                 <h3 class="mb-2">紀錄片</h3>
                 <p>人物紀錄｜實務紀錄｜訪談影片</p>
@@ -73,9 +68,11 @@
             </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
-          mb-3 mb-sm-0">
+          mb-3 mb-sm-0 items-content">
             <router-link class="d-flex flex-column justify-content-between"
-            to="/projects/behind" @click.native="scrollPoint">
+            to="/projects/behind" @click.native="scrollPoint"
+            :style="{ backgroundImage:
+            `url(${require('@/assets/images/banner/Behind.png')})` }">
               <div class="category">
                 <h3 class="mb-2">活動及花絮紀錄</h3>
                 <p>活動花絮拍攝｜重要典禮紀錄</p>
@@ -83,9 +80,11 @@
               <p class="category-en align-self-end">BEHIND THE SCENE</p>
             </router-link>
           </div>
-          <div class="col-xl-3 col-sm-6 d-flex justify-content-center">
+          <div class="col-xl-3 col-sm-6 d-flex justify-content-center items-content">
             <router-link class="d-flex flex-column justify-content-between"
-            to="/postproduction/colorist" @click.native="scrollPoint">
+            to="/postproduction/colorist" @click.native="scrollPoint"
+            :style="{ backgroundImage:
+            `url(${require('@/assets/images/banner/Color.png')})` }">
               <div class="category">
                 <h3 class="mb-2">調光調色</h3>
                 <p>廣告｜劇情片｜紀錄片</p>
@@ -161,11 +160,16 @@
 </template>
 
 <script>
+import Swiper from '@/components/Swiper.vue';
+
 export default {
   methods: {
     scrollPoint() {
       window.scroll(0, 0);
     },
+  },
+  components: {
+    Swiper,
   },
   created() {
     const vm = this;

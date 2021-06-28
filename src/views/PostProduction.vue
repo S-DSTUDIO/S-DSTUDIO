@@ -1,6 +1,7 @@
 <template>
   <div class="post">
-    <header class="bg-s-gray">
+    <header class="bg-s-gray"
+    :style="{ backgroundImage: `url(${require('@/assets/images/banner/postproduction.png')})` }">
       <h2 class="text-white">後期製作 <span>POST-PRODUCTION</span></h2>
     </header>
     <section class="project-wall">

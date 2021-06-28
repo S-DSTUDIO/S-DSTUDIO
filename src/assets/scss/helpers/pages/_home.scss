@@ -31,7 +31,6 @@ nav {
       display: block;
       color: #fff;
       &:hover {
-        color: #fff;
         text-decoration: none;
       }
     }
@@ -52,14 +51,21 @@ nav {
 }
 @include phone {
   #mainNavbar {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-bottom: 1px solid gray;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: translate(-100%,0);
+    transition: transform 0.3s;
     li {
-      margin: 0 0 16px;
-      &:last-child {
-        margin: 0;
-      }
+      margin: 0;
+      background-color: #000;
+    }
+    a{
+      padding: 20px;
+    }
+    &.active{
+      transform: translate(-0.5px,0);
     }
   }
 }
@@ -82,6 +88,9 @@ nav {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+  &.black{
+    color: #000;
+  }
   &.black:after {
     content: "";
     position: absolute;
@@ -100,6 +109,20 @@ nav {
   }
   &.line-on:after {
     transform: scaleX(1);
+  }
+}
+@include phone {
+  .line-style{
+    &.line-on{
+      color: $s-yellow !important;
+      background-color: rgb(70, 70, 70) !important;
+    }
+    &.black{
+      color: #FFF;
+    }
+  }
+  .line-style:after{
+    display: none;
   }
 }
 
@@ -164,6 +187,13 @@ footer {
     .address {
       border-width: 0;
       margin: 20px 0;
+    }
+  }
+}
+@include phone{
+  footer{
+    .address{
+      text-align: center;
     }
   }
 }
