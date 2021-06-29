@@ -1,4 +1,3 @@
-/* eslint-disable space-before-function-paren */
 <template>
   <div class="contact">
     <section class="workflow d-flex flex-column align-items-center workflow-spacing px-2 px-md-0">
@@ -240,11 +239,24 @@
         </div>
       </div>
     </section>
+    <!-- 寄信成功 -->
+    <div id="checkmodal" class="modal fade" data-backdrop="static">
+      <div class="modal-dialog check-pos">
+        <div class="modal-content check-space d-flex flex-column align-items-center">
+          <AlertMessage :state="'success'"></AlertMessage>
+          <div class="m-3 text-success font-weight-bold">{{ sendState }}</div>
+          <router-link to="/" class="btn btn-s-blue" data-dismiss="modal"
+          @click.native="toTop">回首頁</router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+/* global $ */
 import Map from '@/components/Map.vue';
+import AlertMessage from '@/components/AlertMessage.vue';
 
 export default {
   data() {
@@ -258,29 +270,30 @@ export default {
         message: '',
         budget: '',
       },
+      sendState: '',
     };
   },
   components: {
     Map,
+    AlertMessage,
   },
   methods: {
     submitSheet() {
       const vm = this;
-      const api = 'https://sheet.best/api/sheets/cda39020-8cbf-4e62-95cb-412c152e2f63';
+      const api = 'https://sheet.best/api/sheets/18a9b910-62fc-4623-a34d-f416af399cd6';
       const data = this.customer;
+      vm.$bus.$emit('loading', true);
       vm.$http.post(api, data).then((res) => {
-        if (res.data.success) {
-          vm.customer = {
-            name: '',
-            email: '',
-            tel: '',
-            company: '',
-            role: '',
-            message: '',
-            budget: '',
-          };
+        console.log(res);
+        if (res.status === 200) {
+          vm.$bus.$emit('loading', false);
+          vm.sendState = '寄信成功';
+          $('#checkmodal').modal('show');
         }
       });
+    },
+    toTop() {
+      window.scroll(0, 0);
     },
   },
   created() {

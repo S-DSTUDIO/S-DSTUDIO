@@ -6,13 +6,13 @@
         <router-link :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"
         to="/">S-D STUDIO</router-link>
       </h1>
-      <button class="btn" @click="isNavOpen = !isNavOpen" type="button">
+      <button class="btn d-block d-md-none" @click="isNavOpen = !isNavOpen" type="button">
         <i class="fas fa-bars text-white"
           :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"></i>
       </button>
         <div id="mainNavbar" class="flex-row-reverse" :class="{ 'active': isNavOpen }">
           <ul class="d-sm-flex main-item">
-            <li>
+            <li class="d-block d-md-none">
               <a class="text-white text-right" @click="isNavOpen = !isNavOpen">&times;</a>
             </li>
             <li>
