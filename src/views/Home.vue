@@ -56,7 +56,7 @@
     </nav>
     <router-view></router-view>
     <footer class="bg-black px-3 px-md-0"
-    :class="{ 'white-style': nowNav == 'single' || nowNav =='series' }">
+    :class="{ 'white-style': nowNav == 'single' }">
       <ul class="d-flex justify-content-center align-items-center text-white">
         <li class="d-flex align-items-center basic-info spacing">
           <img v-if="isWhite" src="@/assets/images/logo/s-d-logo_white.png" alt="S-D STUDIO Logo"/>
