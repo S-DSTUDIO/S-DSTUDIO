@@ -2,46 +2,47 @@
   <swiper class="swiper" ref="fadeSwiper" :options="swiperOptions">
     <swiper-slide class="slide-1"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/1.png')})`}">
+      <router-link to="/singleproject/projects-20200830"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="mb-4 text-white">國立中正大學成人及繼續教育學系
-          <br />系列廣告</p>
-        <router-link to="/singleproject/projects-20200830"
-        class="btn btn-outline-white" @click.native="toTop">看影片 Watch Video</router-link>
+        <p class="text-white">國立中正大學成人及<span class="breakline">繼續教育學系</span>
+          系列廣告</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-2"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/2.png')})`}">
+      <router-link to="/singleproject/projects-20210502"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="mb-4 text-white">運動科技邁向國際
+        <p class="text-white">運動科技邁向國際
           <br />東奧前看成大！</p>
-        <router-link to="/singleproject/projects-20210502"
-        class="btn btn-outline-white" @click.native="toTop">看影片 Watch Video</router-link>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-3"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/3.png')})`}">
+      <router-link to="/singleproject/projects-20210325"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="mb-4 text-white">Perfection comes from MPI Productionp</p>
-        <router-link to="/singleproject/projects-20210325"
-        class="btn btn-outline-white" @click.native="toTop">看影片 Watch Video</router-link>
+        <p class="text-white">Perfection comes from
+          <span class="breakline">MPI Production</span></p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-4"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/4.png')})`}">
+      <router-link to="/singleproject/projects-20210319"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="mb-4 text-white">台灣中油足球隊
+        <p class="text-white">台灣中油足球隊
           <br />正面突破</p>
-        <router-link to="/singleproject/projects-20210319"
-        class="btn btn-outline-white" @click.native="toTop">看影片 Watch Video</router-link>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-5"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/5.png')})`}">
+      <router-link to="/singleproject/projects-20201028"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="mb-4 text-white">109年「臺南覓」老店計畫
+        <p class="text-white">109年「臺南覓」老店計畫
           <br />《添心·天心軒》</p>
-        <router-link to="/singleproject/projects-20201028"
-        class="btn btn-outline-white" @click.native="toTop">看影片 Watch Video</router-link>
       </div>
     </swiper-slide>
     <div class="swiper-pagination swiper-pagination-white d-flex d-md-block justify-content-center"
@@ -71,6 +72,7 @@ export default {
   },
   data() {
     return {
+      isHover: false,
       swiperOptions: {
         effect: 'fade',
         fadeEffect: {
@@ -107,10 +109,9 @@ export default {
 
 <style lang="scss" scoped>
 .swiper {
-  height: 100%;
+  position: relative !important;
   .swiper-slide {
-    position: relative;
-    height: 100%;
+    padding-bottom: 56%; // 等比例縮放高度
     background-position: center;
     background-size: cover;
     &::after {
@@ -135,15 +136,27 @@ export default {
       font-size: 30px;
       letter-spacing: 6px;
       line-height: 45px;
+      opacity: 0;
+      transform: translate(0, 20px);
+      transition: all 0.3s;
     }
-    a {
-      font-family: "GenJyuuGothic-Bold";
-      letter-spacing: 1.5px;
-    }
+  }
+  .btn-pos:hover + .main-content p{
+    opacity: 1;
+    transform: translate(0, 0);
   }
   .swiper-pagination{
-    bottom: 70px;
+    bottom: 6%;
   }
+}
+.btn-pos{
+  font-family: "GenJyuuGothic-Bold";
+  letter-spacing: 1.5px;
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  transform: translate(-50%, 0);
+  z-index: 999;
 }
 .btn-hover{
   opacity: 0.2;
@@ -152,13 +165,48 @@ export default {
     opacity: 1;
   }
 }
+@media(min-width: 1920px){
+  .swiper{
+    .swiper-slide {
+      padding-bottom: 1080px;
+    }
+  }
+}
+@media(max-width: 769px){
+  .breakline{
+    display: block;
+  }
+  .swiper{
+    .main-content{
+      p{
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
 @media(max-width: 540px){
   .btn-hover{
     display: none;
   }
   .swiper{
+    .swiper-slide {
+      padding-bottom: 100%;
+    }
     .main-content{
       padding: 0 30px;
+      p{
+        font-size: 20px;
+        font-weight: 500;
+        opacity: 1;
+        transform: translate(0, 0);
+        .breakline{
+          display: inline-block;
+        }
+      }
+    }
+    .btn-pos{
+      white-space: nowrap;
     }
   }
 }

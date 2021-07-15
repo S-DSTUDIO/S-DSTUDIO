@@ -7,7 +7,8 @@
         :alt="project.Name">
         <div class="content"
         :class="{
-          'commercial': commercial,
+          'commercial': this.project.FilterTarget === 'Commercial' ||
+          this.project.Page === 'postproduction',
           'documentary': this.project.FilterTarget == 'Documentary',
           'behind': this.project.FilterTarget == 'Behind'}">
           <div class="content-pos text-white">
@@ -31,7 +32,6 @@ export default {
   data() {
     return {
       title: '',
-      commercial: this.project.FilterTarget === 'Commercial' || this.project.Page === 'postproduction',
       secondTitle: '',
       haveSecond: false,
     };
@@ -53,6 +53,7 @@ export default {
         this.secondTitle = nameArray[1];
         this.haveSecond = true;
       }
+      console.log(this.project.URL);
     },
     toTop() {
       window.scroll(0, 0);

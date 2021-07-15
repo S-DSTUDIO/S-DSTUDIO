@@ -8,10 +8,13 @@
     font-family: "GenJyuuGothic-Regular";
     font-size: 20px;
     letter-spacing: 2px;
+    line-height: 30px;
+  }
+  .spacing{
+    width: 80%;
   }
   /* header */
   header {
-    height: 1080px;
     .dot {
       @include dot;
       position: absolute;
@@ -21,10 +24,24 @@
     }
   }
 }
+@media (max-width: 1800px) {
+  .index {
+    .spacing {
+      width: 90%;
+    }
+  }
+}
+@include desktop {
+  .index {
+    .spacing {
+      width: 70%;
+    }
+  }
+}
 @include ipad {
   .index{
-    header{
-      height: 720px;
+    .spacing {
+      width: 100%;
     }
   }
 }
@@ -33,59 +50,43 @@
     span {
       display: block;
     }
-    header{
-      height: 540px;
-    }
-  }
-  header{
-    height: 540px;
   }
 }
 
 /* About us */
 .about {
-  .about-content {
-    width: 30%;
-    p {
-      font-family: "GenJyuuGothic-Medium";
-      font-size: 20px;
-      letter-spacing: 2px;
-      text-align: justify;
-    }
+  h2{
+    margin-bottom: 40px;
+  }
+  p {
+    font-family: "GenJyuuGothic-Medium";
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-top: 60px;
   }
   line-height: 1.2;
   padding: 100px 0 0;
-  .img-box {
-    img{
+  img{
       display: block;
       width: 100%;
       height: auto;
-    }
+  }
+  .about-content{
+    width: 91%;
   }
   .dot {
     margin-top: 72px;
     @include dot;
   }
 }
-@include desktop{
+@include phone{
   .about{
+    p{
+      font-size: 15px;
+    }
     .about-content{
-      width: 60%;
-    }
+    width: 100%;
   }
-}
-@media (max-width: 1000px) {
-  .about {
-    .img-box {
-      border-radius: 10px;
-    }
-  }
-}
-@include ipad{
-  .about{
-    .about-content{
-      width: 90%;
-    }
   }
 }
 
@@ -95,30 +96,6 @@
     margin-top: 72px;
     @include dot;
   }
-  .spacing {
-    width: 80%;
-  }
-}
-@media (max-width: 1820px) {
-  .service {
-    .spacing {
-      width: 100%;
-    }
-  }
-}
-@include desktop {
-  .service {
-    .spacing {
-      width: 70%;
-    }
-  }
-}
-@include ipad {
-  .service {
-    .spacing {
-      width: 100%;
-    }
-  }
 }
 
 .service-items {
@@ -126,7 +103,7 @@
   .items-content{
     background: no-repeat;
     overflow: hidden;
-    opacity: 0.9;
+    opacity: 0.8;
     transition: all 0.3s;
     &:hover{
       opacity: 1;
@@ -155,18 +132,14 @@
     line-height: 30px;
   }
 }
-
-.profolio {
-  font-family: "GenJyuuGothic-Heavy";
-  font-size: 20px;
-  color: #707070;
-  margin-top: 50px;
-  padding-bottom: 8px;
-  border-bottom: 3px solid #707070;
-  &:hover {
-    color: #c28e00;
-    border-bottom: 3px solid #c28e00;
-    text-decoration: none;
+@include phone{
+  .service-content {
+    p{
+      font-size: 15px;
+    }
+    .breakline{
+      display: inline-block;
+    }
   }
 }
 
@@ -200,8 +173,9 @@
   }
   p {
     font-family: "GenJyuuGothic-Medium";
-    font-size: 20px;
+    font-size: 12px;
     letter-spacing: 2px;
+    white-space: nowrap;
   }
   img {
     display: block;
@@ -224,19 +198,31 @@
     }
   }
 }
+@include phone{
+  .workflow-content {
+    p{
+      font-size: 15px;
+    }
+    .breakline{
+      display: inline-block;
+    }
+  }
+}
 
-.learn-more {
+/* button style */
+.more-btn{
   font-family: "GenJyuuGothic-Bold";
-  font-size: 20px;
+  font-size: 15px;
   color: #000;
   text-align: center;
   letter-spacing: 2px;
-  line-height: 30px;
-  padding: 12px 30px;
+  line-height: 20px;
+  padding: 10px 20px;
   border: 1px solid #707070;
   border-radius: 44px;
   background-color: #fff;
-  transition: all 0.3s;
+  margin-top: 50px;
+  transition: all 0.2s;
   &:hover {
     text-decoration: none;
     color: #000;

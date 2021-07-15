@@ -6,7 +6,7 @@
         <router-link :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"
         to="/">S-D STUDIO</router-link>
       </h1>
-      <button class="btn d-block d-md-none" @click="isNavOpen = !isNavOpen" type="button">
+      <button class="btn d-block d-md-none px-0" @click="isNavOpen = !isNavOpen" type="button">
         <i class="fas fa-bars text-white"
           :class="{ 'text-black': nowNav == 'contact' || nowNav =='series' }"></i>
       </button>

@@ -81,7 +81,8 @@
             </div>
             <hr class="bg-white">
             <Lightbox :lightbox="data" :behind="isBehind" v-if="data.ID"></Lightbox>
-            <div class="credit d-flex flex-column justify-content-center align-items-center">
+            <div class="credit d-flex flex-column justify-content-center align-items-center"
+            v-if="data.CreditTitle">
               <h3>CREDIT</h3>
               <div class="credit-containter d-flex justify-content-center"
                 v-for="(item, i) in creditProcess.main" :key="i+item">
@@ -117,6 +118,7 @@ export default {
     return {
       data: {},
       Id: '',
+      page: '',
       isSeries: false,
       isLoading: false,
       isBehind: false,
@@ -188,7 +190,8 @@ export default {
       vm.$bus.$emit('loading', true);
       vm.$http.get(api).then((res) => {
         const data = res.data.feed.entry;
-        const singleData = data.filter((item) => item.gsx$id.$t === vm.Id);
+        const singleData = data.filter((item) => item.gsx$id.$t === vm.Id
+        && item.gsx$page.$t === vm.page);
         vm.data = {
           ID: singleData[0].gsx$id.$t,
           Name: singleData[0].gsx$name.$t,
@@ -234,6 +237,8 @@ export default {
     this.getData();
     // eslint-disable-next-line prefer-destructuring
     this.Id = this.$route.params.id.split('-')[1];
+    // eslint-disable-next-line prefer-destructuring
+    this.page = this.$route.params.id.split('-')[0];
     this.$bus.$emit('changeNav', 'single');
   },
 };

@@ -49,7 +49,7 @@ nav {
     }
   }
 }
-@include phone {
+@media(max-width: 767px) {
   #mainNavbar {
     position: fixed;
     width: 100%;

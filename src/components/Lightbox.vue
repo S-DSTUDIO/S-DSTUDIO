@@ -64,7 +64,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.filmclip{
+  padding-bottom: 100px;
+}
 .filmclip>img{
   display: block;
   width: 100%;
