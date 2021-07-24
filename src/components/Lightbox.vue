@@ -21,15 +21,20 @@
         <div class="modal-pos">
           <div class="modal-content">
             <!-- main big pic-->
-            <div class="slides" v-for="(item, i) in picNum" :key="i"
-            :class="{ 'active': slideIndex == i }">
-              <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
-              +'/big/'+ item +'.png')" style="width:100%">
+            <div class="slide-group">
+              <div class="container-size">
+                <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+                +'/big/1.png')" style="width:100%">
+              </div>
+              <div class="slides" v-for="(item, i) in picNum" :key="i">
+                <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
+                +'/big/'+ item +'.png')" style="width:100%">
+              </div>
             </div>
             <!-- Next/previous controls -->
-            <a class="prev" @click="slideIndex -= 1"
+            <a class="prev" @click="showSlide(slideIndex -= 1)"
             :class="{ 'active':  slideIndex > 0 }">&#10094;</a>
-            <a class="next" @click="slideIndex += 1"
+            <a class="next" @click="showSlide(slideIndex += 1)"
             :class="{ 'active':  slideIndex < 5 }">&#10095;</a>
             <!-- Thumbnail image controls -->
             <div class="row">
@@ -57,6 +62,22 @@ export default {
   },
   methods: {
     showSlide(index = 0) {
+      // 給slide-group的translate要移動到的指定圖片位置(就可以有滑動效果惹)
+      const group = document.querySelector('.slide-group');
+      if (index === 0) {
+        group.style.transform = 'translate(0,0)';
+      } else if (index === 1) {
+        group.style.transform = 'translate(-1200px,0)';
+      } else if (index === 2) {
+        group.style.transform = 'translate(-2400px,0)';
+      } else if (index === 3) {
+        group.style.transform = 'translate(-3600px,0)';
+      } else if (index === 4) {
+        group.style.transform = 'translate(-4800px,0)';
+      } else if (index === 5) {
+        group.style.transform = 'translate(-6000px,0)';
+      }
+      // 最後在把更新後的圖片位置回丟給data裡的slideIndex做更新(當下圖片位置)
       this.slideIndex = index;
     },
   },
@@ -130,12 +151,44 @@ img{
   padding: 0;
   overflow: hidden;
 }
-
 /* slides */
+.slide-group{
+  width: 1200px;
+  position: relative;
+  transform: translate(0,0);
+  transition: all 0.3s;
+}
+/* container-size 假容器 */
+.container-size img{
+  display: block;
+  opacity: 0; // 置入圖片得到高度，但不顯示
+}
 .slides{
-  display: none;
-  &.active{
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  width: 1200px;
+  height: 100%;
+  overflow-x: hidden;
+  &:nth-child(2){
+    left: 1200px;
+  }
+  &:nth-child(3){
+    left: 2400px;
+  }
+  &:nth-child(4){
+    left: 3600px;
+  }
+  &:nth-child(5){
+    left: 4800px;
+  }
+  &:nth-child(6){
+    left: 6000px;
+  }
+  img{
     display: block;
+    width: 100%;
+    height: auto;
   }
 }
 

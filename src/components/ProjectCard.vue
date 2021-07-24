@@ -53,7 +53,6 @@ export default {
         this.secondTitle = nameArray[1];
         this.haveSecond = true;
       }
-      console.log(this.project.URL);
     },
     toTop() {
       window.scroll(0, 0);
@@ -82,7 +81,7 @@ export default {
   }
   .content{
     position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: bold;
     bottom: 0;
     width: 100%;
@@ -105,10 +104,12 @@ export default {
   .title{
     font-size: 25px;
     letter-spacing: 2.5px;
+    line-height: 30px;
   }
   .depiction{
     font-size: 15px;
     letter-spacing: 1.5px;
+    line-height: 30px;
   }
 }
 .play{

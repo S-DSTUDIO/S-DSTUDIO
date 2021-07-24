@@ -65,7 +65,7 @@
                 <h3 class="mb-2">紀錄片</h3>
                 <p>人物紀錄｜實務紀錄｜訪談影片</p>
               </div>
-              <p class="category-en align-self-end">Documentary</p>
+              <p class="category-en align-self-end">DOCUMENTARY</p>
             </router-link>
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center
@@ -83,14 +83,14 @@
           </div>
           <div class="col-xl-3 col-sm-6 d-flex justify-content-center items-content">
             <router-link class="d-flex flex-column justify-content-between"
-            to="/postproduction/colorist" @click.native="scrollPoint"
+            to="/postproduction/all" @click.native="scrollPoint"
             :style="{ backgroundImage:
             `url(${require('@/assets/images/banner/Color.png')})` }">
               <div class="category">
-                <h3 class="mb-2">調光調色</h3>
-                <p>廣告｜劇情片｜紀錄片</p>
+                <h3 class="mb-2">後期製作</h3>
+                <p>調光｜剪輯｜2D動畫</p>
               </div>
-              <p class="category-en align-self-end">Colorist</p>
+              <p class="category-en align-self-end">COLORIST</p>
             </router-link>
           </div>
         </div>

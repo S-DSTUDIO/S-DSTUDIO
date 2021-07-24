@@ -71,7 +71,7 @@
           <div class="container">
             <div class="content mb-3">
               <p>{{ data.Category }}</p>
-              <h2>{{ data.Name }}</h2>
+              <h2 class="my-2">{{ data.Name }}</h2>
               <p>{{ data.Company }}</p>
             </div>
             <div class="iframe-container">
