@@ -15,7 +15,7 @@
         </div>
       </div>
       <!-- lightbox-modal -->
-      <div id="lightbox-modal" class="lightbox-modal phone-none"
+      <div id="lightbox-modal" class="lightbox-modal ipad-none"
       :class="{ 'active': isOpen == true }">
         <span class="close cursor" @click="isOpen = false">&times;</span>
         <div class="modal-pos">
@@ -132,8 +132,8 @@ img{
     display: block;
   }
 }
-@media(max-width: 576px){
-  .lightbox-modal.phone-none{
+@media(max-width: 768px){
+  .lightbox-modal.ipad-none{
     display: none;
   }
 }
