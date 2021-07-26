@@ -368,6 +368,7 @@
 /* global $ */
 import Map from '@/components/Map.vue';
 import AlertMessage from '@/components/AlertMessage.vue';
+import emailjs from 'emailjs-com'; // 載入EmailJS
 
 export default {
   data() {
@@ -395,13 +396,20 @@ export default {
       const data = this.customer;
       vm.$bus.$emit('loading', true);
       vm.$http.post(api, data).then((res) => {
-        console.log(res);
         if (res.status === 200) {
-          vm.$bus.$emit('loading', false);
-          vm.sendState = '寄信成功';
-          $('#checkmodal').modal('show');
+          vm.emailSend(data);
         }
       });
+    },
+    emailSend(data) {
+      const vm = this;
+      const serviceId = 'skyice';
+      const templateId = 'template_sd';
+      emailjs.send(serviceId, templateId, data).then(() => {
+        vm.$bus.$emit('loading', false);
+        vm.sendState = '寄信成功';
+        $('#checkmodal').modal('show');
+      }).catch((error) => { console.log(error); });
     },
     toTop() {
       window.scroll(0, 0);

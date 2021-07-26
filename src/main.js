@@ -6,6 +6,7 @@ import VueAxios from 'vue-axios';
 import './bus';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required } from 'vee-validate/dist/rules';
+import { init } from 'emailjs-com';
 import router from './router';
 import 'bootstrap';
 import 'leaflet/dist/leaflet.css';
@@ -38,6 +39,9 @@ extend('tel', {
   validate: (value) => value.length >= 9,
   message: '請填寫正確的格式',
 });
+
+// EmailJS初始化登入UserID - User ID 來自API keys欄位
+init('user_5mf4rr6Yb80SVwTnTfOGT');
 
 new Vue({
   router,
