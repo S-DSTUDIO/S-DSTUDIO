@@ -12,6 +12,7 @@
     "bootstrap": "^4.6.0",
     "core-js": "^3.6.5",
     "emailjs-com": "^3.2.0",
+    "google-spreadsheet": "^3.1.15",
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
     "popper.js": "^1.16.1",

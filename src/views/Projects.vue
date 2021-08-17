@@ -36,6 +36,10 @@
 <script>
 import ProjectCard from '@/components/ProjectCard.vue';
 
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+// eslint-disable-next-line import/no-unresolved
+const creds = require('../../credential.json'); // 憑證匯入
+
 export default {
   data() {
     return {
@@ -78,6 +82,7 @@ export default {
       const api = 'https://spreadsheets.google.com/feeds/list/1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA/1/public/values?alt=json';
       vm.$bus.$emit('loading', true);
       vm.$http.get(api).then((res) => {
+        console.log(res);
         const newData = [];
         const data = res.data.feed.entry;
         data.forEach((item) => {
@@ -102,10 +107,40 @@ export default {
         vm.$bus.$emit('loading', false);
       });
     },
+    async getSheet() {
+      const newData = [];
+      const doc = new GoogleSpreadsheet('1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA');
+      this.$bus.$emit('loading', true);
+      await doc.useServiceAccountAuth(creds);
+      await doc.loadInfo();
+      const sheet = doc.sheetsByIndex[0];
+      const rows = await sheet.getRows();
+      await rows.forEach((item) => {
+        const newRow = {
+          ID: item.ID,
+          Name: item.Name,
+          Category: item.Category,
+          Company: item.Company,
+          CreditTitle: item.CreditTitle,
+          CreditContent: item.CreditContent,
+          OtherEvent: item.OtherEvent,
+          OtherContent: item.OtherContent,
+          URL: item.URL,
+          Page: item.Page,
+          Behind: item.Behind,
+          Series: item.Series,
+          FilterTarget: item.FilterTarget,
+        };
+        newData.push(newRow);
+      });
+      this.data = await newData.filter((item) => item.Page === 'projects').reverse();
+      await this.$bus.$emit('loading', false);
+    },
   },
   created() {
     const vm = this;
-    vm.getData();
+    // vm.getData();
+    vm.getSheet();
     vm.$bus.$emit('changeNav', 'projects');
     vm.nowNav = this.$route.params.id;
   },

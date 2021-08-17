@@ -113,6 +113,10 @@
 import Lightbox from '@/components/Lightbox.vue';
 import $ from 'jquery';
 
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+// eslint-disable-next-line import/no-unresolved
+const creds = require('../../credential.json');
+
 export default {
   data() {
     return {
@@ -164,10 +168,10 @@ export default {
     },
     seriesData() {
       const vm = this;
+      const seriesData = [];
       let seriesItem = {};
       const content = vm.data.SeriesContent.split('+').map((item) => item.split('/'));
       const allCredit = vm.data.OtherContent.split('/').map((item) => item.split(','));
-      const seriesData = [];
       if (vm.isSeries) {
         const info = vm.data.URL.split('+');
         info.forEach((item, index) => {
@@ -227,6 +231,53 @@ export default {
         vm.$bus.$emit('loading', false);
       });
     },
+    async getSheet() {
+      const vm = this;
+      const doc = new GoogleSpreadsheet('1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA');
+      this.$bus.$emit('loading', true);
+      await doc.useServiceAccountAuth(creds);
+      await doc.loadInfo();
+      const sheet = doc.sheetsByIndex[0];
+      const rows = await sheet.getRows();
+      function single() {
+        const singleData = rows.filter((item) => item.ID === vm.Id
+          && item.Page === vm.page);
+        vm.data = {
+          ID: singleData[0].ID,
+          Name: singleData[0].Name,
+          Category: singleData[0].Category,
+          Company: singleData[0].Company,
+          CreditTitle: singleData[0].CreditTitle,
+          CreditContent: singleData[0].CreditContent,
+          OtherEvent: singleData[0].OtherEvent,
+          OtherContent: singleData[0].OtherContent,
+          URL: singleData[0].URL,
+          Page: singleData[0].Page,
+          Behind: singleData[0].Behind,
+          Series: singleData[0].Series,
+          SeriesContent: singleData[0].SeriesContent,
+          FilterTarget: singleData[0].FilterTarget,
+        };
+        if (vm.data.Series === 'Y') {
+          vm.isSeries = true;
+          vm.isCenter = true;
+          vm.isPart = false;
+          // header and footer跟 contact頁面一樣顏色
+          vm.$bus.$emit('changeNav', 'series');
+          if (vm.data.ID === '20190416') {
+            vm.isCenter = false;
+            vm.isPart = true;
+          }
+        }
+        if (vm.data.Behind === 'Y') {
+          vm.isBehind = true;
+        } else if (vm.data.Behind === 'N') {
+          vm.isBehind = false;
+        }
+      }
+      await single();
+      await vm.$bus.$emit('loading', false);
+    },
     slideCredit(i) {
       // 先回到上級再選到子選單(爸爸→兒子)
       const item = $('.credit-list')[i];
@@ -234,7 +285,8 @@ export default {
     },
   },
   created() {
-    this.getData();
+    // this.getData();
+    this.getSheet();
     // eslint-disable-next-line prefer-destructuring
     this.Id = this.$route.params.id.split('-')[1];
     // eslint-disable-next-line prefer-destructuring
