@@ -2,7 +2,8 @@
   <div class="post">
     <header class="bg-s-gray"
     :style="{ backgroundImage: `url(${require('@/assets/images/banner/postproduction.png')})` }">
-      <h2 class="text-white">後期製作 <span>POST-PRODUCTION</span></h2>
+      <h2 class="text-white">POST-PRODUCTION<span>後期製作</span></h2>
+      <div class="black-opacity"></div>
     </header>
     <section class="project-wall">
       <ul class="d-flex justify-content-between project-menu">
@@ -13,7 +14,7 @@
         <li class="mb-3 mb-md-0">
           <router-link to="/postproduction/colorgrading"
           :class="{ 'line-on':  nowNav == 'colorgrading'}"
-        >調光｜color grading</router-link>
+        >調光｜COLOR GRADING</router-link>
         </li>
         <li class="mb-3 mb-md-0">
           <router-link to="/postproduction/editing" :class="{ 'line-on':  nowNav == 'editing'}"
@@ -133,7 +134,7 @@ export default {
         };
         newData.push(newRow);
       });
-      this.data = await newData.filter((item) => item.Page === 'postproduction').reverse();
+      this.data = await newData.filter((item) => item.Page === 'postproduction');
       await this.$bus.$emit('loading', false);
     },
   },

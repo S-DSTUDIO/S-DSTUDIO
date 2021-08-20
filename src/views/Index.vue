@@ -90,7 +90,7 @@
                 <h3 class="mb-2">後期製作</h3>
                 <p>調光｜剪輯｜2D動畫</p>
               </div>
-              <p class="category-en align-self-end">COLORIST</p>
+              <p class="category-en align-self-end">POST-PRODUCTION</p>
             </router-link>
           </div>
         </div>
@@ -131,7 +131,7 @@
             justify-content-center align-items-center">
               <h3>簽約與腳本確認</h3>
               <img src="@/assets/images/workflowicon/big3.png" alt="腳本確認與簽約">
-              <p class="text-center">Agreement and Script<br>confirmation</p>
+              <p class="text-center">Agreement and Script<span>confirmation</span></p>
             </div>
             <div class="col-xl-2 col-md-4 mb-4 mb-md-0 d-flex flex-column
             justify-content-center align-items-center">

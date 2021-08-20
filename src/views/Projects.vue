@@ -2,7 +2,7 @@
   <div class="project">
     <header class="bg-s-gray"
     :style="{ backgroundImage: `url(${require('@/assets/images/banner/projects.png')})` }">
-      <h2 class="text-white">作 品 <span>PROJECTS</span></h2>
+      <h2 class="text-white">PROJECTS<span>作 品</span></h2>
     </header>
     <section class="project-wall">
       <ul class="d-flex justify-content-between project-menu">
@@ -82,7 +82,6 @@ export default {
       const api = 'https://spreadsheets.google.com/feeds/list/1GdpFefqAfFOFErmLCH53PsIot9cf9OVYy2jBT1ubidA/1/public/values?alt=json';
       vm.$bus.$emit('loading', true);
       vm.$http.get(api).then((res) => {
-        console.log(res);
         const newData = [];
         const data = res.data.feed.entry;
         data.forEach((item) => {

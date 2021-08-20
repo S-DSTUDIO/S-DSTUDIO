@@ -3,7 +3,7 @@
     <section class="workflow workflow-spacing">
       <div class="workflow-content mb-3 py-4 bg-color">
         <div class="container title-center">
-          <h2>WORK FLOW <span class="breakline">服務流程</span></h2>
+          <h2>WORKFLOW <span class="breakline">服務流程</span></h2>
           <p class="mt-2">從腳本討論至影片完成，<span class="breakline">製作期依照案件內容而定 。</span>
             <br>The production period will base on the content of each case.
           </p>
@@ -310,7 +310,7 @@
                   <option value="30萬-60萬">30萬-60萬</option>
                   <option value="60萬-100萬">60萬-100萬</option>
                   <option value="100萬-150萬">100萬-150萬</option>
-                  <option value="150">150</option>
+                  <option value="150">150萬以上</option>
                 </select>
               </div>
             </div>

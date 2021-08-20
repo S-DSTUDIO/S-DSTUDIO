@@ -23,6 +23,7 @@
             <!-- main big pic-->
             <div class="slide-group">
               <div class="container-size">
+                <!-- 假容器 -->
                 <img :src="require('@/assets/images/collection/'+ lightbox.Page +'/'+ lightbox.ID
                 +'/big/1.png')" style="width:100%">
               </div>
@@ -165,24 +166,25 @@ img{
 }
 .slides{
   position: absolute;
+  left: 0;
   top: 0;
   z-index: 999;
   width: 1200px;
   height: 100%;
   overflow-x: hidden;
-  &:nth-child(2){
+  &:nth-child(3){
     left: 1200px;
   }
-  &:nth-child(3){
+  &:nth-child(4){
     left: 2400px;
   }
-  &:nth-child(4){
+  &:nth-child(5){
     left: 3600px;
   }
-  &:nth-child(5){
+  &:nth-child(6){
     left: 4800px;
   }
-  &:nth-child(6){
+  &:nth-child(7){
     left: 6000px;
   }
   img{

@@ -79,7 +79,7 @@ export default {
           crossFade: true,
         },
         autoplay: {
-          delay: 3000,
+          delay: 5000,
         },
         loop: true,
         pagination: {
@@ -132,18 +132,12 @@ export default {
     transform: translate(-50%, -50%);
     z-index: 999;
     p {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "GenJyuuGothic-regular", Arial, Helvetica, sans-serif;
       font-size: 30px;
       letter-spacing: 6px;
       line-height: 45px;
-      opacity: 0;
-      transform: translate(0, 20px);
-      transition: all 0.3s;
+      animation: fadeIn 2s linear;
     }
-  }
-  .btn-pos:hover + .main-content p{
-    opacity: 1;
-    transform: translate(0, 0);
   }
   .swiper-pagination{
     bottom: 6%;
@@ -208,6 +202,18 @@ export default {
     .btn-pos{
       white-space: nowrap;
     }
+  }
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }
 </style>
