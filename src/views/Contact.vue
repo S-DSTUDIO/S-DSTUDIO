@@ -5,7 +5,10 @@
         <div class="container title-center">
           <h2>WORKFLOW <span class="breakline">服務流程</span></h2>
           <p class="mt-2">從腳本討論至影片完成，<span class="breakline">製作期依照案件內容而定 。</span>
-            <br>The production period will base on the content of each case.
+            <br>
+              <span class="text-en">
+                The production period will base on the content of each case.
+              </span>
           </p>
         </div>
       </div>
@@ -23,9 +26,9 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="detail mt-3">
-                  <li>‧ 製作方向與內容</li>
-                  <li>‧ 影片目標受眾(TA)</li>
-                  <li>‧ 影片播放平台
+                  <li><span class="comma">‧ </span>製作方向與內容</li>
+                  <li><span class="comma">‧ </span>影片目標受眾(TA)</li>
+                  <li><span class="comma">‧ </span>影片播放平台
                     <p class="example">
                       EX：網站、電視廣告、<br>社群媒體廣告、展場...
                     </p>
@@ -34,15 +37,16 @@
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail mt-3">
-                  <li>‧ Producing concept <span class="breakpoint">and content</span></li>
-                  <li>‧ Target Audience</li>
-                  <li>‧ Streaming media
+                <ul class="detail mt-3 text-en">
+                  <li><span class="comma">‧ </span>Producing concept
+                  <span class="breakpoint">and content</span></li>
+                  <li><span class="comma">‧ </span>Target Audience</li>
+                  <li><span class="comma">‧ </span>Streaming media
                     <p class="example">
                       EX：Web,TVC,CF,Social media,etc.
                     </p>
                   </li>
-                  <li>‧ Region of streaming</li>
+                  <li><span class="comma">‧ </span>Region of streaming</li>
                 </ul>
               </div>
             </div>
@@ -61,16 +65,16 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="detail mt-3">
-                  <li>‧ 腳本內容設計</li>
-                  <li>‧ 預算費用規劃</li>
-                  <li>‧ 影片製作時程規劃</li>
+                  <li><span class="comma">‧ </span>腳本內容設計</li>
+                  <li><span class="comma">‧ </span>預算費用規劃</li>
+                  <li><span class="comma">‧ </span>影片製作時程規劃</li>
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail mt-3">
-                  <li>‧ Scriptwriting</li>
-                  <li>‧ Budgeting</li>
-                  <li>‧ Scheduling</li>
+                <ul class="detail mt-3 text-en">
+                  <li><span class="comma">‧ </span>Scriptwriting</li>
+                  <li><span class="comma">‧ </span>Budgeting</li>
+                  <li><span class="comma">‧ </span>Scheduling</li>
                 </ul>
               </div>
             </div>
@@ -89,14 +93,14 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="detail mt-3">
-                  <li>‧ 簽訂合約</li>
-                  <li>‧ 詳細腳本確認</li>
+                  <li><span class="comma">‧ </span>簽訂合約</li>
+                  <li><span class="comma">‧ </span>詳細腳本確認</li>
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail mt-3">
-                  <li>‧ Agreement sign up</li>
-                  <li>‧ Script confirmation</li>
+                <ul class="detail mt-3 text-en">
+                  <li><span class="comma">‧ </span>Agreement sign up</li>
+                  <li><span class="comma">‧ </span>Script confirmation</li>
                 </ul>
               </div>
             </div>
@@ -115,18 +119,19 @@
             <div class="row">
               <div class="col-md-6">
                 <ul class="detail mt-3">
-                  <li>‧ 現場勘景</li>
-                  <li>‧ 製作分鏡腳本</li>
-                  <li>‧ 製作細項確認</li>
-                  <li>‧ 正式拍攝</li>
+                  <li><span class="comma">‧ </span>現場勘景</li>
+                  <li><span class="comma">‧ </span>製作分鏡腳本</li>
+                  <li><span class="comma">‧ </span>製作細項確認</li>
+                  <li><span class="comma">‧ </span>正式拍攝</li>
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail mt-3">
-                  <li>‧ Site survey</li>
-                  <li>‧ Storyboard</li>
-                  <li>‧ Production detail <span class="breakpoint">confirmation</span></li>
-                  <li>‧ Filming</li>
+                <ul class="detail mt-3 text-en">
+                  <li><span class="comma">‧ </span>Site survey</li>
+                  <li><span class="comma">‧ </span>Storyboard</li>
+                  <li><span class="comma">‧ </span>Production detail
+                  <span class="ipad-breakpoint">confirmation</span></li>
+                  <li><span class="comma">‧ </span>Filming</li>
                 </ul>
               </div>
             </div>
@@ -176,7 +181,7 @@
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail">
+                <ul class="detail text-en">
                   <li class="detail-red mt-3">Limit of film modification：
                     <span class="breakpoint-limit">2 times</span>
                   </li>
@@ -185,7 +190,8 @@
                     <p class="post-space">primary color grading,audio,</p>
                     <p class="post-space">2DFX/VFX,ect.</p>
                   </li>
-                  <li>‧ Bcopy (80% complete, <span class="breakpoint">adjustment for Acopy)：</span>
+                  <li class="main-break">‧ Bcopy (80% complete,
+                    <span class="breakpoint">adjustment for Acopy)：</span>
                     <p class="post-space">Confirmation for V.O.,
                       <span class="breakpoint-limit">color grading,ect.</span>
                     </p>
@@ -220,7 +226,7 @@
                 </ul>
               </div>
               <div class="col-md-6">
-                <ul class="detail">
+                <ul class="detail text-en">
                   <li class="mt-3">‧ Film Delivery
                     <p class="example">
                       (By Cloud or else according
@@ -239,8 +245,8 @@
         <h2>Ready to Start? <span class="breakline">等不及要開始了嗎?</span></h2>
         <p class="mt-3">等不及開始和我們<span class="breakline">一起執行新專案了嗎?</span></p>
         <p>我們非常期待收到您的來信!</p>
-        <p>Let's get started on<span class="breakline">a new project.</span></p>
-        <p>Looking forward to <span class="breakline">hearing from you!</span></p>
+        <p class="text-en">Let's get started on <span class="breakline">a new project.</span></p>
+        <p class="text-en">Looking forward to <span class="breakline">hearing from you!</span></p>
         <p><span class="alert-text">※為必填項目</span></p>
         <ValidationObserver v-slot="{ invalid }">
           <form class="mt-4 d-flex flex-column" @submit.prevent = "submitSheet">
@@ -325,18 +331,21 @@
     </section>
     <section class="contact-us px-1 px-md-0">
       <div class="container">
-        <h2 class="mb-3">CONTACT US 聯絡我們</h2>
+        <h2 class="mb-3">CONTACT US <span class="breakline">聯絡我們</span></h2>
         <div class="row justify-content-between align-items-start">
           <div class="col-xl-7 d-block d-md-flex align-items-start">
-            <p class="label-style mr-md-3">地址 Address</p>
+            <p class="label-style mr-md-3">Address</p>
             <p>710台南市永康區富強路一段98巷38弄3號1樓
-              <br>Taiwan, Tainan, 1F., No. 3, Aly. 38, Ln. 98,
-              <br>Sec. 1, Fuqiang Rd., Yongkang Dist
+                <br>
+                  <span class="text-en">
+                    Taiwan, Tainan, 1F., No. 3, Aly. 38, Ln. 98,
+                    Sec. 1, Fuqiang Rd., Yongkang Dist
+                  </span>
             </p>
           </div>
           <div class="col-xl-5 d-block d-md-flex mt-3 mt-xl-0">
             <p class="label-style mr-md-3">E-mail</p>
-            <p>selfdirectedstudio@gmail.com</p>
+            <p class="text-en">selfdirectedstudio@gmail.com</p>
           </div>
         </div>
         <Map class="mt-3"></Map>

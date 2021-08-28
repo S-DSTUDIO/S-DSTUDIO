@@ -131,7 +131,7 @@ nav {
 /* footer */
 footer {
   padding: 76px 0 108px 0;
-  font-family: "GenJyuuGothic-Medium";
+  font-family: Georgia, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 22px;
   letter-spacing: 1.57px;
@@ -194,8 +194,16 @@ footer {
 }
 @include phone{
   footer{
+    padding: 50px 0;
+    .basic-info {
+      img {
+        margin-right: 10px;
+      }
+    }
     .address{
-      text-align: center;
+      p{
+        text-align: justify;
+      }
     }
   }
 }

@@ -55,6 +55,8 @@
 
 /* About us */
 .about {
+  line-height: 1.2;
+  padding: 100px 0 0;
   h2{
     margin-bottom: 40px;
   }
@@ -63,9 +65,10 @@
     font-size: 20px;
     letter-spacing: 2px;
     margin-top: 60px;
+    span.text-en{
+      font-family: Georgia, Helvetica, Arial, sans-serif;
+    }
   }
-  line-height: 1.2;
-  padding: 100px 0 0;
   img{
       display: block;
       width: 100%;
@@ -83,10 +86,18 @@
   .about{
     p{
       font-size: 15px;
+      .text-en{
+        letter-spacing: 1px;
+      }
     }
     .about-content{
     width: 100%;
+    }
   }
+  .workflow,.service{
+    .text-en{
+        letter-spacing: 1px;
+    }
   }
 }
 
@@ -95,6 +106,9 @@
   .dot {
     margin-top: 72px;
     @include dot;
+  }
+  span.text-en{
+    font-family: Georgia, Helvetica, Arial, sans-serif;
   }
 }
 
@@ -131,6 +145,9 @@
     letter-spacing: 1.5px;
     line-height: 30px;
   }
+  .category-en{
+    line-height: 1em;
+  }
 }
 @include phone{
   .service-content {
@@ -140,12 +157,18 @@
     .breakline{
       display: inline-block;
     }
+    h2>.breakline{
+      margin-top: 8px;
+    }
   }
 }
 
 /* Work flow */
 .workflow {
   padding-bottom: 150px;
+  span.text-en{
+    font-family: Georgia, Helvetica, Arial, sans-serif;
+  }
 }
 .workflow-content {
   p {
@@ -197,6 +220,9 @@
   }
 }
 @include ipad {
+  .workflow{
+    padding-bottom: 50px;
+  }
   .work-item {
     .work-space {
       width: 100%;
@@ -210,6 +236,9 @@
     }
     .breakline{
       display: inline-block;
+    }
+    h2>.breakline{
+      margin-top: 8px;
     }
   }
 }

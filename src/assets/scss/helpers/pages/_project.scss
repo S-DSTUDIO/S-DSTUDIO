@@ -95,10 +95,11 @@
     }
 }
 @include ipad{
-    .project-menu{
-        width: 100%;
+    .project-wall {
+        padding: 70px 0 50px;
     }
     .project-menu{
+        width: 100%;
         flex-wrap: wrap;
         li{
             width: 50%;

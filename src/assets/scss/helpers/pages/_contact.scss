@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 .contact {
   h2 {
     font-family: "GenJyuuGothic-Bold";
@@ -26,6 +27,9 @@
 /* Workflow */
 .workflow-spacing {
   padding-top: 180px;
+  span.text-en{
+    font-family: Georgia, Helvetica, Arial, sans-serif !important;
+  }
   .bg-color{
     background-color: #eeeeee;
   }
@@ -83,18 +87,20 @@
   }
 }
 
+
 .detail {
   font-family: "GenJyuuGothic-Regular";
   letter-spacing: 2px;
-  font-size: 18px;
   li {
+    font-size: 18px;
     display: block;
     text-align: left !important;
-    line-height: 40px;
+    margin-top: 20px;
     .post-space{
       font-size: 18px;
       font-family: "GenJyuuGothic-Regular";
       margin-left: 28px;
+      margin-top: 10px;
     }
   }
   span {
@@ -110,8 +116,9 @@
   }
   .example {
     font-size: 14px;
-    line-height: 30px;
+    margin-top: 6px;
     margin-left: 30px;
+    line-height: 20px;
   }
   .edit {
     display: inline-block;
@@ -150,32 +157,89 @@
     font-size: 18px;
   }
 }
+.detail.text-en{
+  font-family: Georgia, Helvetica, Arial, sans-serif !important;
+  .breakpoint-limit,.breakpoint,.example,.post-space{
+    font-family: Georgia, Helvetica, Arial, sans-serif !important;
+  }
+}
 
 @media(max-width: 1000px){
   .detail{
     .breakpoint{
       display: block;
       margin-left: 24px;
-      line-height: 20px;
-      margin-bottom: 10px;
+      // margin-bottom: 10px;
+      line-height: 30px;
     }
     .breakpoint-limit{
       display: block;
-      line-height: 20px;
       margin-bottom: 10px;
+      line-height: 30px;
+    }
+  }
+}
+@include ipad{
+  .detail{
+    .ipad-breakpoint{
+      margin-left: 14px;
+      font-size: 18px;
+      font-family: Georgia, Helvetica, Arial, sans-serif !important;
     }
   }
 }
 @include phone{
   .detail{
+    font-family: "GenJyuuGothic-Regular",sans-serif;
     li{
       font-size: 16px;
+      .breakpoint{
+        margin-left: 16px;
+      }
+      .breakpoint,.breakpoint-limit{
+        letter-spacing: 1px;
+        font-size: 16px;
+        margin-bottom: 0;
+      }
       .example{
+        font-family: sans-serif;
+        letter-spacing: 1px;
         font-size: 12px;
+        .breakpoint-limit{
+          font-size: 14px;
+          line-height: 16px;
+        }
       }
       .post-space{
         font-size: 16px;
+        margin-bottom: 0;
       }
+      .comma{
+        display: inline-block;
+      }
+    }
+    .ipad-breakpoint{
+      display: inline;
+      margin-left: 0;
+      font-size: 16px;
+    }
+    .cloud{
+      p{
+        font-family: sans-serif;
+      }
+    }
+    .main-break{
+      .breakpoint{
+        margin-left: 10px;
+      }
+      .post-space{
+        margin-top: 4px;
+      }
+    }
+  }
+  .text-en{
+    li{
+      letter-spacing: 1px;
     }
   }
 }
@@ -185,6 +249,9 @@
 .customer-info {
   font-family: "GenJyuuGothic-Bold";
   margin-top: 70px;
+  .text-en{
+    font-family: Georgia, Helvetica, Arial, sans-serif !important;
+  }
   p{
     line-height: 30px;
   }
@@ -231,9 +298,17 @@
 }
 @include phone{
   .customer-info{
+    h2{
+      .breakline{
+        margin-top: 8px;
+      }
+    } 
     .btn-style{
       width: 100%;
       padding: 10px 0;
+    }
+    .text-en{
+      letter-spacing: 1px;
     }
   }
 }
@@ -242,9 +317,14 @@
 .contact-us {
   margin-top: 200px;
   margin-bottom: 180px;
-  line-height: 1.5;
+  p{
+    line-height: 1.5;
+  }
   .social {
     font-size: 30px;
+  }
+  .text-en{
+    font-family: Georgia, Helvetica, Arial, sans-serif !important;
   }
 }
 .label-style {
@@ -261,6 +341,17 @@ map{
   .line-break {
     display: block;
     margin-top: 10px;
+  }
+}
+@include phone{
+  .contact-us{
+    .breakline{
+      margin-top: 8px;
+    }
+    .text-en{
+      font-family: Georgia, Helvetica, Arial, sans-serif !important;
+      letter-spacing: 1px;
+    }
   }
 }
 

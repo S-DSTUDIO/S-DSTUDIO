@@ -4,7 +4,8 @@
     @click.native="toTop">
       <div class="card-size">
         <img :src="require('@/assets/images/project-card/'+ project.Page +'/'+ project.ID + '.png')"
-        :alt="project.Name">
+        :alt="project.Name" :class="{ 'series-size': this.project.ID === '20190416'
+        || this.project.ID === '20200830'}">
         <div class="content"
         :class="{
           'commercial': this.project.FilterTarget === 'Commercial' ||
@@ -110,6 +111,15 @@ export default {
     font-size: 15px;
     letter-spacing: 1.5px;
     line-height: 30px;
+  }
+}
+@media (max-width: 576px){
+  .card-size{
+    img.series-size{
+      transform: translate(-28%,0);
+      width: auto;
+      height: 200px;
+    }
   }
 }
 .play{
