@@ -55,18 +55,16 @@
         </div>
     </nav>
     <router-view></router-view>
-    <footer class="bg-black px-4 px-md-0 d-flex d-lg-block justify-content-md-center
-    justify-content-end"
+    <footer class="bg-black px-4 px-md-0 d-flex d-lg-block justify-content-md-center"
     :class="{ 'white-style': nowNav == 'single' }">
       <ul class="d-flex justify-content-center align-items-lg-center text-white">
-        <li class="d-flex align-items-center basic-info spacing justify-content-end
-        justify-content-lg-start">
+        <li class="d-flex align-items-center basic-info spacing">
           <img v-if="isWhite" src="@/assets/images/logo/s-d-logo_white.png" alt="S-D STUDIO Logo"/>
           <img v-else src="@/assets/images/logo/s-d-logo_black.png" alt="S-D STUDIO Logo"/>
           <ul>
-            <li class="text-right text-lg-left">思帝影像事業企業社</li>
-            <li class="text-right text-lg-left">S-D STUDIO</li>
-            <li class="social text-right text-lg-left">
+            <li>思帝影像事業企業社</li>
+            <li>S-D STUDIO</li>
+            <li class="social">
               <a
                 href="https://www.facebook.com/selfdirectedstudio"
                 target="_blank"
@@ -83,12 +81,12 @@
           </ul>
         </li>
         <li class="address spacing">
-          <p class="text-right text-lg-left">
+          <p>
             710 台南市永康區富強路一段98巷38弄3號 <br />1F., No. 3, Aly. 38, Ln.
             98, <br />Sec. 1, Fuqiang Rd., Yongkang Dist., Taiwan
           </p>
         </li>
-        <li class="email spacing text-right text-lg-left">
+        <li class="email spacing">
           <p>selfdirectedstudio@gmail.com</p>
         </li>
       </ul>
