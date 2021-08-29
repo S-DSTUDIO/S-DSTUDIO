@@ -5,7 +5,7 @@
           <div class="container">
             <div class="content mb-3">
               <p>{{ data.Category }}</p>
-              <h2>{{ data.Name }}</h2>
+              <h2 class="my-2">{{ data.Name }}</h2>
               <p>{{ data.Company }}</p>
             </div>
             <div class="part" v-for="(item, i) in seriesData" :key="i">
@@ -74,7 +74,7 @@
               <h2 class="my-2">{{ data.Name }}</h2>
               <p>{{ data.Company }}</p>
             </div>
-            <div class="iframe-container">
+            <div class="iframe-container mt-5">
               <iframe :src="data.URL"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               allowfullscreen="true" scrolling="no" ></iframe>
