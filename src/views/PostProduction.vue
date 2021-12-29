@@ -104,7 +104,9 @@ export default {
           };
           newData.push(single);
         });
-        vm.data = newData.filter((item) => item.Page === 'postproduction');
+        // eslint-disable-next-line radix
+        vm.data = newData.filter((item) => item.Page === 'postproduction').sort((a, b) => parseInt(b.ID) - parseInt(a.ID));
+        console.log(vm.data);
         vm.$bus.$emit('loading', false);
       });
     },
@@ -134,7 +136,8 @@ export default {
         };
         newData.push(newRow);
       });
-      this.data = await newData.filter((item) => item.Page === 'postproduction');
+      // eslint-disable-next-line radix
+      this.data = await newData.filter((item) => item.Page === 'postproduction').sort((a, b) => parseInt(b.ID) - parseInt(a.ID));
       await this.$bus.$emit('loading', false);
     },
   },
