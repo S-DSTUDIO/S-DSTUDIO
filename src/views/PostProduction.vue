@@ -106,7 +106,6 @@ export default {
         });
         // eslint-disable-next-line radix
         vm.data = newData.filter((item) => item.Page === 'postproduction').sort((a, b) => parseInt(b.ID) - parseInt(a.ID));
-        console.log(vm.data);
         vm.$bus.$emit('loading', false);
       });
     },
