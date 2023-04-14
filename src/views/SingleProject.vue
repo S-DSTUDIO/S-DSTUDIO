@@ -41,7 +41,8 @@
                 </div>
               </div>
             </div>
-            <div class="credit d-flex flex-column justify-content-center align-items-center"
+            <div class="credit d-flex flex-column justify-content-center align-items-center
+              mt-5"
               v-if="!isPart">
               <h3>CREDIT</h3>
               <div class="credit-containter d-flex justify-content-center"
