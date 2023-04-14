@@ -10,10 +10,10 @@
             </div>
             <div class="part" v-for="(item, i) in seriesData" :key="i">
               <h3 class="mb-3 mt-5">{{ item.title }}</h3>
-              <div class="iframe-container">
+              <div class="iframe-container" v-if="item.URL !== ''">
                 <iframe :src="item.URL"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                allowfullscreen="true" scrolling="no" ></iframe>
+                allowfullscreen="true" scrolling="no"></iframe>
               </div>
               <div class="part-content">
                 <div class="my-4">
@@ -74,10 +74,10 @@
               <h2 class="my-2">{{ data.Name }}</h2>
               <p>{{ data.Company }}</p>
             </div>
-            <div class="iframe-container mt-5">
+            <div class="iframe-container mt-5" v-if="data.URL !== ''">
               <iframe :src="data.URL"
               allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              allowfullscreen="true" scrolling="no" ></iframe>
+              allowfullscreen="true" scrolling="no"></iframe>
             </div>
             <hr class="bg-white">
             <Lightbox :lightbox="data" :behind="isBehind" v-if="data.ID"></Lightbox>
