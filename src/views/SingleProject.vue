@@ -169,9 +169,15 @@ export default {
     seriesData() {
       const vm = this;
       const seriesData = [];
+      let content = '';
+      let allCredit = '';
       let seriesItem = {};
-      const content = vm.data.SeriesContent.split('+').map((item) => item.split('/'));
-      const allCredit = vm.data.OtherContent.split('/').map((item) => item.split(','));
+      if (vm.data.SeriesContent) {
+        content = vm.data.SeriesContent.split('+').map((item) => item.split('/'));
+      }
+      if (vm.data.OtherContent) {
+        allCredit = vm.data.OtherContent.split('/').map((item) => item.split(','));
+      }
       if (vm.isSeries) {
         const info = vm.data.URL.split('+');
         info.forEach((item, index) => {

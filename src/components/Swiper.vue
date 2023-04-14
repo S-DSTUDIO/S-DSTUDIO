@@ -2,11 +2,11 @@
   <swiper class="swiper" ref="fadeSwiper" :options="swiperOptions">
     <swiper-slide class="slide-1"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/1.png')})`}">
-      <router-link to="/singleproject/projects-20200830"
+      <router-link to="/singleproject/projects-20220823"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">國立中正大學成人及<span class="breakline">繼續教育學系</span>
-          系列廣告</p>
+        <p class="text-white">戡亂時期下的軍民合作思潮
+          <br />家寶醫學研究室</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-2"
@@ -29,11 +29,11 @@
     </swiper-slide>
     <swiper-slide class="slide-4"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/4.png')})`}">
-      <router-link to="/singleproject/projects-20210319"
+      <router-link to="/singleproject/projects-20230201"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">台灣中油足球隊
-          <br />正面突破</p>
+        <p class="text-white">戰地轉身·轉譯再生
+          <br />統籌執行計畫</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-5"
