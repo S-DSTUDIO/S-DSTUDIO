@@ -2,11 +2,11 @@
   <swiper class="swiper" ref="fadeSwiper" :options="swiperOptions">
     <swiper-slide class="slide-1"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/1.png')})`}">
-      <router-link to="/singleproject/projects-20220823"
+      <router-link to="/singleproject/projects-20230201"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">戡亂時期下的軍民合作思潮
-          <br />家寶醫學研究室</p>
+        <p class="text-white">戰地轉身·轉譯再生
+          <br />統籌執行計畫</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-2"
@@ -29,20 +29,20 @@
     </swiper-slide>
     <swiper-slide class="slide-4"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/4.png')})`}">
-      <router-link to="/singleproject/projects-20230201"
+      <router-link to="/singleproject/projects-20210319"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">戰地轉身·轉譯再生
-          <br />統籌執行計畫</p>
+        <p class="text-white">台灣中油足球隊
+          <br />正面突破</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-5"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/5.png')})`}">
-      <router-link to="/singleproject/projects-20201028"
+      <router-link to="/singleproject/projects-20220823"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">109年「臺南覓」老店計畫
-          <br />《添心·天心軒》</p>
+        <p class="text-white">戡亂時期下的軍民合作思潮
+          <br />家寶醫學研究室</p>
       </div>
     </swiper-slide>
     <div class="swiper-pagination swiper-pagination-white d-flex d-md-block justify-content-center"
