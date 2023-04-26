@@ -29,9 +29,17 @@
 @include ipad{
     .project{
         header{
+            height: 500px;
             h2{
                 left: 50% !important;
             }
+        }        
+    }
+}
+@include phone{
+    .project{
+        header{
+            height: 300px;
         }        
     }
 }

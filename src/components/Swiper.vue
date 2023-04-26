@@ -14,8 +14,7 @@
       <router-link to="/singleproject/projects-20210502"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">運動科技邁向國際
-          <br />東奧前看成大！</p>
+        <p class="text-white">《小明的學習單》</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-3"

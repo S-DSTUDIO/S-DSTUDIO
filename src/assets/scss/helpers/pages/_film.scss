@@ -1,5 +1,5 @@
 /* header */
-.post {
+.film {
     header {
         height: 634px;
         position: relative;
@@ -10,6 +10,7 @@
             font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
             font-weight: bold;
+            text-align: center;
             letter-spacing: 3px;
             white-space: nowrap;
             position: absolute;
@@ -33,7 +34,7 @@
     }
 }
 @include ipad{
-    .post{
+    .film{
         header{
             height: 500px;
             h2{
@@ -46,7 +47,7 @@
     }
 }
 @include phone{
-    .post{
+    .film{
         header{
             height: 300px;
             span{

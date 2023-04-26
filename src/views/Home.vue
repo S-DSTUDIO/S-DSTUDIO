@@ -43,6 +43,15 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/film/all" class="nav-item line-style"
+                :class="{
+                  'black': nowNav == 'contact' || nowNav =='series',
+                  'line-on': nowNav == 'film',}"
+                @click.native="isNavOpen = !isNavOpen">
+                FILM
+              </router-link>
+            </li>
+            <li>
               <router-link to="/contact" class="nav-item line-style"
                 :class="{
                   'black': nowNav == 'contact' || nowNav =='series',

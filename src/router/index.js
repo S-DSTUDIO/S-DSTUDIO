@@ -25,6 +25,11 @@ const router = new VueRouter({
         component: () => import('../views/PostProduction.vue'),
       },
       {
+        path: 'film/:id',
+        name: 'Film',
+        component: () => import('../views/Film.vue'),
+      },
+      {
         path: 'singleproject/:id',
         name: 'Singleproject',
         component: () => import('../views/SingleProject.vue'),
