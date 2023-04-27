@@ -11,7 +11,7 @@
     </swiper-slide>
     <swiper-slide class="slide-2"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/2.png')})`}">
-      <router-link to="/singleproject/projects-20210502"
+      <router-link to="/singleproject/film-20220131"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
         <p class="text-white">《小明的學習單》</p>
