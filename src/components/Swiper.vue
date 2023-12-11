@@ -2,11 +2,11 @@
   <swiper class="swiper" ref="fadeSwiper" :options="swiperOptions">
     <swiper-slide class="slide-1"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/1.png')})`}">
-      <router-link to="/singleproject/projects-20230201"
+      <router-link to="/singleproject/projects-20231016"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">戰地轉身·轉譯再生
-          <br />統籌執行計畫</p>
+        <p class="text-white">奇美綠能園區 生物多樣性
+          <br />太陽的禮物</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-2"
@@ -14,7 +14,7 @@
       <router-link to="/singleproject/film-20220131"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
-        <p class="text-white">《小明的學習單》</p>
+        <p class="text-white">小明的學習單</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-3"
