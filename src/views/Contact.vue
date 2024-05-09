@@ -345,7 +345,7 @@
           </div>
           <div class="col-xl-5 d-block d-md-flex mt-3 mt-xl-0">
             <p class="label-style mr-md-3">E-mail</p>
-            <p class="text-en">selfdirectedstudio@gmail.com</p>
+            <p class="text-en">sdadmin@sdstudiotw.com</p>
           </div>
         </div>
         <Map class="mt-3"></Map>
@@ -379,6 +379,10 @@ import Map from '@/components/Map.vue';
 import AlertMessage from '@/components/AlertMessage.vue';
 import emailjs from 'emailjs-com'; // 載入EmailJS
 
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+// eslint-disable-next-line import/no-unresolved
+const creds = require('../../credential.json'); // 憑證匯入
+
 export default {
   data() {
     return {
@@ -399,16 +403,23 @@ export default {
     AlertMessage,
   },
   methods: {
+    async writeRow(item) {
+      const doc = new GoogleSpreadsheet('1FQ_XKOpnARylAMuz4yk7CrFTT39KzlI6rrvhq-7OQaM');
+      await doc.useServiceAccountAuth(creds);
+      await doc.loadInfo();
+      // 讀取excel裡的第一個表單↓
+      const sheet = await doc.sheetsByIndex[0];
+      // 新增新資料↓
+      await sheet.addRow(item);
+    },
     submitSheet() {
       const vm = this;
-      const api = 'https://sheet.best/api/sheets/18a9b910-62fc-4623-a34d-f416af399cd6';
-      const data = this.customer;
+      const data = vm.customer;
       vm.$bus.$emit('loading', true);
-      vm.$http.post(api, data).then((res) => {
-        if (res.status === 200) {
-          vm.emailSend(data);
-        }
-      });
+      (async () => {
+        await vm.writeRow(data);
+        await vm.emailSend(data);
+      })();
     },
     emailSend(data) {
       const vm = this;

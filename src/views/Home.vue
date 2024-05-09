@@ -96,7 +96,7 @@
           </p>
         </li>
         <li class="email spacing">
-          <p>selfdirectedstudio@gmail.com</p>
+          <p>sdadmin@sdstudiotw.com</p>
         </li>
       </ul>
     </footer>
