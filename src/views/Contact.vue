@@ -345,7 +345,7 @@
           </div>
           <div class="col-xl-5 d-block d-md-flex mt-3 mt-xl-0">
             <p class="label-style mr-md-3">E-mail</p>
-            <p class="text-en">sdadmin@sdstudiotw.com</p>
+            <p class="text-en">sdstudio@sdstudiotw.com</p>
           </div>
         </div>
         <Map class="mt-3"></Map>
