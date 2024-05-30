@@ -13,7 +13,7 @@
         <div id="mainNavbar" class="flex-row-reverse" :class="{ 'active': isNavOpen }">
           <ul class="d-sm-flex main-item">
             <li class="d-block d-md-none">
-              <a class="text-white text-right" @click="isNavOpen = !isNavOpen">&times;</a>
+              <span class="text-white text-right" @click="isNavOpen = !isNavOpen">&times;</span>
             </li>
             <li>
               <router-link to="/" class="nav-item line-style"
