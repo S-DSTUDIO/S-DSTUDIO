@@ -2,6 +2,24 @@
   <swiper class="swiper" ref="fadeSwiper" :options="swiperOptions">
     <swiper-slide class="slide-1"
     :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/1.png')})`}">
+      <router-link to="/singleproject/projects-20250528"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
+      <div class="main-content text-center">
+        <p class="text-white">Beyond Contact The Confidence We Build
+          <br />MPI Probe Card</p>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="slide-2"
+    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/2.png')})`}">
+      <router-link to="/singleproject/projects-20250429"
+      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
+      <div class="main-content text-center">
+        <p class="text-white">魔泌 ASCE PLUS
+          <br />為你的美麗解密</p>
+      </div>
+    </swiper-slide>
+    <swiper-slide class="slide-3"
+    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/3.png')})`}">
       <router-link to="/singleproject/projects-20231016"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
@@ -9,30 +27,12 @@
           <br />太陽的禮物</p>
       </div>
     </swiper-slide>
-    <swiper-slide class="slide-2"
-    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/2.png')})`}">
+    <swiper-slide class="slide-4"
+    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/4.png')})`}">
       <router-link to="/singleproject/film-20220131"
       class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
       <div class="main-content text-center">
         <p class="text-white">小明的學習單</p>
-      </div>
-    </swiper-slide>
-    <swiper-slide class="slide-3"
-    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/3.png')})`}">
-      <router-link to="/singleproject/projects-20210325"
-      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
-      <div class="main-content text-center">
-        <p class="text-white">Perfection comes from
-          <span class="breakline">MPI Production</span></p>
-      </div>
-    </swiper-slide>
-    <swiper-slide class="slide-4"
-    :style="{backgroundImage: `url(${require('@/assets/images/banner/swiper/4.png')})`}">
-      <router-link to="/singleproject/projects-20210319"
-      class="btn btn-outline-white btn-pos" @click.native="toTop">看影片 Watch Video</router-link>
-      <div class="main-content text-center">
-        <p class="text-white">台灣中油足球隊
-          <br />正面突破</p>
       </div>
     </swiper-slide>
     <swiper-slide class="slide-5"
