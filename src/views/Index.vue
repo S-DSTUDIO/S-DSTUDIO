@@ -9,19 +9,18 @@
       spacing">
         <img src="@/assets/images/banner/About.png" alt="About us">
         <p class="about-content">
-          S-D STUDIO 思帝影像事業企業社
-          <br>於2013年5月成立至今，秉持著對創作的熱情與細膩的拍攝手法，
-          致力於各式類型影像的發想與製作，善用鏡頭語言傳達內心底蘊的情感，
-          在沒有設限的畫面空間裡，刻劃每一個故事中，獨具價值的真摯溫度。
-          倘若此刻或未來，你剛好有個故事，那不妨就讓我們與你，一同來說這故事吧！
+          思帝影像 S-D STUDIO，S-D 源自self-directed的縮寫，來自成人教育學的專有名詞『自我導向』。我們勇於挑戰與學習，
+          在每個內容的開發上秉持成人教育學的觀念，在眾多案件中嘗試跨領域合作，持續學習、探索，並且內化，並結合影像的專業，
+          為客戶量身打造適合的方案。
           <br>
           <span class="text-en">
-            S-D STUDIO has been established to producing multiple
-            types of film creation since May 2013.
-            With a strong passion for creating and an exquisite filming technique,
-            we present sentimental feelings and a unique sense of warmth for every
-            story through the screen with no boundaries.
-            If there were any stories to share, let us join you at any time.
+            S-D, derived from the abbreviation of self-directed, originates
+            from the specialized term in adult education known as 'self-directed learning.'
+            We embrace challenges and learning, adhering to the principles of adult education
+            in every content development endeavor.
+            Through collaborative efforts across different cases (interdisciplinary),
+            we learn, explore, and internalize,
+            integrating our own expertise to tailor suitable solutions for clients.
           </span>
         </p>
         <ul class="d-flex justify-content-between dot">
